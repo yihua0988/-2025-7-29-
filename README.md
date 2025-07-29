@@ -28,19 +28,17 @@
 
 ## 作品索引 & PPT 連結
 
-- [專案索引連結](https://github.com/your-github-username/your-project-name)  
+- [我的GitHub網頁首頁連結](https://yihua0988.github.io/0722/index.html)  
   點擊查看我所完成的詐騙分析專案的詳細代碼與文檔。
 
-- [簡報 PPT 連結](https://link-to-your-ppt.com)  
+- [簡報 PPT 連結](https://github.com/yihua0988/-2025-7-29-/tree/main/ppt)  
   這是我的專案簡報，介紹了該專案的背景、目標、流程及成果。
 
 ---
 
 ## 聯繫我
 
-- **Email**: [your.email@example.com](mailto:yihua@gmail.com)
-- **GitHub**: [你的GitHub首頁](https://yihua0988.github.io/0722/index.html)
-
+- **Email**: [your.yihua@gmail.com](mailto:yihua@gmail.com)
 ---
 
 感謝您觀看我的作品，期待有機會與您合作或進一步交流！
