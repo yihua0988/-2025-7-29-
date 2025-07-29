@@ -28,7 +28,7 @@
 
 ## 作品索引 & PPT 連結
 
-- [我的GitHub網頁首頁連結](https://yihua0988.github.io/0722/index.html)  
+- [我的GitHub網頁首頁連結](https://yihua0988.github.io/-2025-7-29-/index.html)  
   點擊查看我所完成的詐騙分析專案的詳細代碼與文檔。
 
 - [簡報 PPT 連結](https://github.com/yihua0988/-2025-7-29-/tree/main/ppt)  
