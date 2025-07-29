@@ -38,7 +38,7 @@
 
 ## 聯繫我
 
-- **Email**: [your.yihua@gmail.com](mailto:yihua@gmail.com)
+- **Email**: [your.yihua0988@gmail.com](mailto:yihua0988@gmail.com)
 ---
 
 感謝您觀看我的作品，期待有機會與您合作或進一步交流！
