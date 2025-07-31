@@ -1,0 +1,117 @@
+.slick-initialized .slick-slide {
+    overflow: hidden;
+    margin: 0;
+    border-radius: 4px;
+    padding: 15px 15px;
+    justify-content: center;
+    list-style: none;
+}
+
+.seemore {
+    text-align: right;
+    padding: 0px 20px;
+}
+
+.slick_prev,
+.slick_next {
+    position: absolute;
+    top: 40%;
+    z-index: 5;
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0.8;
+    padding-left: 0px;
+    padding-right: 0px;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+
+.slick_prev {
+    left: 5px
+}
+
+.slick_next {
+    right: 10px;
+}
+
+.aCard {
+    text-align: left;
+    box-sizing: border-box;
+    padding: 14px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: linear-gradient(106.65deg, #F0FDFF 1.44%, #EAF2FF 100%);
+    border: 5px solid #76d0d7;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    position: relative;
+    border-radius:10px;
+}
+
+.info-main {
+    padding: 0;
+    margin: 3px 0;
+}
+
+.info-main a h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    color: #000000;
+    font-family: 'Inter';
+    font-weight: bold;
+    font-size: 16px;
+    height: 47px;
+}
+
+.info-sub {
+    font-weight: lighter;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-bottom: 3px;
+}
+
+.info-sub>a {
+    font-size: 12px;
+    color: #4d518c; 
+    font-family: 'Inter';
+    line-height: 1;
+    font-weight:400;
+}
+
+.info-desc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    height: 40px;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.info-desc>a {
+    font-size: 14px;
+    color: #666666;
+    margin: 0;
+    height: 40px;
+    font-family: 'Inter';
+}
+
+.seemore {
+    text-align: right;
+    padding: 0px 20px 0 20px;
+}
+
+@media (max-width: 799px) {
+    .seemore {
+        text-align: center;
+    }
+}
