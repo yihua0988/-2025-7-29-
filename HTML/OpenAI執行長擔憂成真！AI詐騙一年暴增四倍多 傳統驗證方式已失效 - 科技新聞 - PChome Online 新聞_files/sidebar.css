@@ -1,0 +1,2459 @@
+@charset "utf-8";
+
+/* Html 5 */
+header,nav,article,section,aside,footer{ display: block; }
+
+
+/*************** 基本新聞配色修改區 START ***************/
+/* 右欄同步STYLE */
+form,input,textarea,select,pre,button { font-family: Arial, "Noto Sans TC", "微軟正黑體", sans-serif !important; }
+
+.sidebar a {
+	color: #666;
+	text-decoration: none;
+}
+ aside .aside_news .txt a u, aside .aside_topics a, aside .aside_eventflash ul li a, aside .news_new_tabs .news_tabs ul li a {
+	color: #777 !important;
+	text-decoration: none;
+}
+.sidebar a:hover, aside .aside_topics a:hover, aside .aside_eventflash ul li a:hover, aside .news_new_tabs .news_tabs ul li a:hover {
+	color: #444;
+	text-decoration: underline;
+}
+
+aside .aside_movielist ul li em, aside .aside_movielist, aside .ad_ec003, aside .ad_ec004, aside .aside_newslist, aside .aside_spots, aside .aside_news, aside .aside_voting, aside .aside_topics, aside .ad_ec001, aside .ad_ec004, aside .aside_eventflash, aside .ad_ec003, aside .aside_cooper, aside .aside_hotvote {
+	border: 1px solid #ccc !important;
+}
+
+aside .aside_movielist .title, aside .ad_ec003 b>u, aside .horocinfo .noteitem li span, aside .daily_fortune .luckitem, aside .daily_fortune .luckitem span, aside .receiptbx, aside .daily_fortune .rate dt, aside .pertit .date, aside .aside_news .txt a, aside .aside_word span, aside .rank-list-item a, aside .toptem .top-txt h4, aside .aside_voting p, aside .weatherBlock .contxt, aside .aside_eventflash b, aside .aside_cooper b, aside .aside_newslist .title {
+	color: #444 !important;
+}
+aside .aside_movielist ul li a, aside .ad_ec001>i u a, aside .ad_ec003 b>ul li a span i, aside .aside_celebs p, aside .toptem .top-txt .intro, aside .aside_word, aside .aside_newslist ul li a {
+	color: #666;
+}
+aside .ad_ec003 b>ul li a p, aside .ad_ec004 p, aside .aside_voting ul li, aside .weather_conditions .temp_current, aside .weather_conditions .loctitle, aside .weather_future .day {
+	color: #777;
+}
+
+aside .aside_eventflash .more a, aside .aside_newslist .title a, aside .aside_news .txt a u, aside .aside_word a, aside .toptem .top-txt .detail, aside .aside_voting input, aside .bottem .rk {
+	background: #bbb;
+}
+
+/* 非灰階主題顏色1 */
+aside .aside_movielist ul li a.news, aside .aside_movielist ul li a.more, aside .aside_movielist ul li em, aside .aside_voting ul li i {
+	color: #25a2f2;
+}
+aside .toptem .rk, aside .aside_celebs h4, aside .aside_movielist .title>span, aside .aside_movielist ul li a.news:hover, aside .aside_movielist ul li a.more:hover, aside .aside_eventflash .more a:hover, aside .aside_newslist .title:before, aside .aside_newslist .title a:hover, aside #aside_word, aside .aside_word b, aside .aside_voting ul li u div, aside .aside_news .txt a u:hover, aside .aside_word a:hover, aside .toptem .top-txt .detail:hover, aside .aside_voting input:hover, aside .aside_spots a .headline, aside .news_new_tabs .news_tabs ul li a i, aside .aside_hotvote a .headline {
+	background: #25a2f2;
+	text-decoration: none;
+}
+
+/* 非灰階主題顏色2 - 橘紅色系 */
+aside .aside_stkred, aside .aside_spots a, aside .aside_spots a:hover, aside .ad_ec003 b>ul li a span u, aside .ad_ec004 b i>ul li a em, aside .ad_ec001 b a u, aside .ad_ec001 p, aside .receiptbx .number, aside .pertit .ymd, aside .aside_news .tit a, aside .aside_hotvote a, aside .aside_hotvote a:hover {
+	color: #ea313f;
+}
+aside .ad_ec004 p:before, aside .ad_ec003 b>ul li a p>em, aside .lottebx ul li, aside .aside_celebs ul li em, aside .aside_topics span, aside .aside_newslist .title-hot:before, aside .aside_spots .headline, aside .news_new_tabs .news_tabs ul li a i.hot, aside .aside_hotvote .headline {
+	background: #ea313f;
+}
+aside .aside_stkred, aside .aside_rakplcorp .hd h3 {
+	border-color: #ea313f;
+}
+/*************** 基本新聞配色修改區 END ***************/
+
+
+/* 00. 右欄綜合 */
+#side-area {
+	/*
+	position: absolute;
+	*/
+	float: right;
+	background: #fff;
+}
+.sidebar {
+	width: 300px;
+	padding: 5px 5px 0;
+	border: 0;
+	background: #f5f5f5;
+	font-family: Arial, "Noto Sans TC","微軟正黑體", "Microsoft JhengHei", "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", sans-serif;
+}
+.sidebar aside {
+	margin: 0 0 5px;
+	background: #fff;
+	overflow: hidden;
+}
+.sidebar aside a img, .sidebar aside iframe {
+	display: block;
+}
+
+
+/* 01. 氣象綜合區塊 */
+aside .topFours {
+	position: relative;
+	top: -4px;
+	background: #fafafa;
+}
+aside .topFours .inner {
+	/*height: 145px;*/
+	margin-bottom: -4px;
+	font-family: 'Roboto',"微軟正黑體", "儷黑 Pro", Microsoft JhengHei, Arial, Helvetica, sans-serif;
+}
+aside  .newsTab li.on {
+	border-top: 4px solid #fafafa;
+}
+aside  .newsTab li {
+	float: left;
+	width: 74px;
+	border-right: 1px solid #fff;
+}
+aside .newsTab li a {
+	position: relative;
+	min-height: 23px;
+	padding: 10px 0 2px;
+	color: #777;
+	background: #e0e0e0;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	display: block;
+}
+aside .newsTab li.on a {
+	padding: 6px 0 2px;
+	background: #fafafa;
+}
+
+aside .newsTab li.last {
+	float: right;
+	width: 74px;
+	border-right: 0;
+}
+aside .cf {
+	zoom: 1;
+}
+aside .cf:before, aside .cf:after {
+	clear: both;
+	height: 0;
+	line-height: 0;
+	content: ".";
+	visibility: hidden;
+	font-size: .1em;
+	display: block;
+}
+
+/* 01-1. 氣象 */
+aside .weatherBlock .column {
+	position: relative;
+	float: left;
+	width: 170px;
+}
+aside .weatherBlock .column.rit {
+	width: 130px;
+}
+aside .weather_conditions {
+	margin: 3px 8px;
+}
+aside .weather_conditions .loctitle {
+	line-height: 26px;
+	font-weight: 700;
+	font-size: 18px;
+}
+aside .weather_conditions .temp {
+	clear: both;
+	float: left;
+	color: #737373;
+	font-weight: 300;
+	font-size: 28px;
+	font-size: 1.75rem;
+}
+aside .weather_conditions .temp_current {
+	position: relative;
+	top: 7px;
+	line-height: 40px;
+	letter-spacing: -1px;
+	font-size: 42px;
+	font-weight: 500;
+}
+aside .weatherBlock .contxt {
+	height: 32px;
+	line-height: 36px;
+	padding: 0px 5px;
+	margin-top: 0px;
+	background: #fafafa;
+	font-size: 16px;
+	font-weight: 700;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-indent: 3px;
+	overflow: hidden;
+}
+aside .weatherBlock .contxt:hover {
+	text-decoration: underline;
+}
+aside .weather_conditions .temp_range {
+	position: relative;
+	top: 12px;
+	line-height: 24px;
+	letter-spacing: 0px;
+	font-size: 22px;
+	font-weight: 700;
+}
+aside .temp_range .hi {
+	color: #ef3f3f;
+}
+aside .temp_range .lo {
+	color: #4782de;
+}
+aside .weather_conditions-short {
+	position: absolute;
+	top: 28px;
+	right: 20px;
+}
+aside .weather_conditions-short.sm {
+	top: 7px;
+	right: 7px;
+}
+aside .weather_conditions-short .short-icon {
+	color: #737373;
+	font-size: 67px;
+}
+aside .weather_conditions-short.sm .short-icon {
+	font-size: 40px;
+}
+aside .weather_future {
+	position: relative;
+	border-bottom: 1px solid #d9d9d9;
+}
+aside .weather_future.last {
+	border-bottom: none;
+}
+aside .weather_future .day {
+	padding: 5px 0 0;
+	font-size: 13px;
+	font-weight: 700;
+}
+aside .weather_future .temp_range {
+	line-height: 33px;
+	font-weight: 700;
+	font-size: 18px;
+}
+aside .wt_box {
+	background: #fff;
+}
+
+/* googl_fonts_Roboto_setting */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+/* @font-face {
+	font-family: 'avant_garde';
+	src: url(../font/itc_avant_garde_ce_gothic_book-webfont.eot);
+	src: url(../font/itc_avant_garde_ce_gothic_book-webfont.eot?#iefix) format('embedded-opentype'),
+	 url(../font/itc_avant_garde_ce_gothic_book-webfont.woff2) format('woff2'),
+	 url(../font/itc_avant_garde_ce_gothic_book-webfont.woff) format('woff'),
+	 url(../font/itc_avant_garde_ce_gothic_book-webfont.ttf) format('truetype'),
+	 url(../font/itc_avant_garde_ce_gothic_book-webfont.svg#phphotoregular) format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'avgard_demi';
+	src: url(../font/itc_avgard_demi.eot);
+	src: url(../font/itc_avgard_demi.eot?#iefix) format('embedded-opentype'),
+	url(../font/itc_avgard_demi.woff2) format('woff2'),
+	url(../font/itc_avgard_demi.woff) format('woff'),
+	url(../font/itc_avgard_demi.ttf) format('truetype'),
+	url(../font/itc_avgard_demi.svg#phphotoregular) format('svg');
+	font-weight: normal;
+	font-style: normal;
+} */
+@font-face {
+	font-family: 'newswft';
+	src: url('../font/newswft-webfont.eot');
+	src: url('../font/newswft-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../font/newswft-webfont.woff') format('woff'),
+	url('../font/newswft-webfont.ttf') format('truetype'),
+	url('../font/newswft-webfont.svg#pchufd') format('svg');
+	font-weight: normal;
+	font-style: normal
+}
+[class^="icon-"], [class*="icon-"] {
+	font-family: 'newswft';
+	font-style: normal;
+	speak: none;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+}
+[class^="iconw-"], [class*="iconw-"] {
+	font-family: 'newswft';
+	font-style: normal;
+	speak: none;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+}
+aside .iconw-wt1:before {
+	content: '#'
+}
+aside .iconw-wt1 {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#35;')
+}
+/* for IE7 */
+aside .iconw-wt2:before {
+	content: '$'
+}
+aside .iconw-wt2 {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#36;')
+}
+aside .iconw-wt3:before {
+	content: '%'
+}
+aside .iconw-wt3 {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#37;')
+}
+aside .iconw-wt4:before {
+	content: '&'
+}
+aside .iconw-wt4 {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#38;')
+}
+aside .iconw-wt5:before {
+	content: "'"
+}
+aside .iconw-wt5 {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#39;')
+}
+aside .iconw-wt6:before {
+	content: '('
+}
+aside .iconw-wt6 {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#40;')
+}
+aside .iconw-wt7:before {
+	content: ')'
+}
+aside .iconw-wt7 {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#41;')
+}
+aside .iconw-wt8:before {
+	content: '*'
+}
+aside .iconw-wt8 {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#41;')
+}
+aside .iconw-wt9:before {
+	content: '1'
+}
+aside .iconw-wt9 {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#42;')
+}
+aside .iconw-wt10:before {
+	content: '+'
+}
+aside .iconw-wt10 {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#43;')
+}
+aside .iconw-wt11:before {
+	content: ','
+}
+aside .iconw-wt11 {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#44;')
+}
+aside .iconw-wt12:before {
+	content: '-'
+}
+aside .iconw-wt12 {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#45;')
+}
+aside .iconw-wt13:before {
+	content: '.'
+}
+aside .iconw-wt13 {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#46;')
+}
+aside .iconw-wt14:before {
+	content: '/'
+}
+aside .iconw-wt14 {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#47;')
+}
+aside .iconw-wt15:before {
+	content: '0'
+}
+aside .iconw-wt15 {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#48;')
+}
+aside .iconw-clock:before {
+	content: '?'
+}
+aside .iconw-clock {
+	*zoom: expression( this.runtimeStyle['zoom']='1', this.innerHTML='&#63;')
+}
+
+/* 01-2. 星座 */
+aside .sign_content {
+	width: 682px;
+}
+aside .navbar-sign-top {
+	width: 100%;
+	height: 62px;
+	background: #6957df;
+	background: -webkit-linear-gradient(top, #6957df, #252291);
+	background: -moz-linear-gradient(top, #6957df, #252291);
+	background: -ms-linear-gradient(top, #6957df, #252291);
+}
+aside .twelvsg {
+	padding: 0 5px;
+}
+aside .signtag {
+	position: relative;
+	border-width: 0px 1px 0px 0;
+	border-style: solid;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: top;
+	-webkit-border-image: -webkit-gradient(linear, 0 100%, 0 0, from(black), to(rgba(0, 0, 0, 0))) 1 100%;
+	-webkit-border-image: -webkit-linear-gradient(bottom, black, rgba(0, 0, 0, 0)) 1 100%;
+	-moz-border-image: -moz-linear-gradient(bottom, black, rgba(0, 0, 0, 0)) 1 100%;
+	-o-border-image: -o-linear-gradient(bottom, black, rgba(0, 0, 0, 0)) 1 100%;
+	border-image: linear-gradient(to top, #6b59e0, #e3e0f5) 1 100%;
+	overflow: hidden;
+}
+aside .signtag.rml {
+	border-width: 0;
+}
+aside .signtag .link .text {
+	position: relative;
+	font-size: 16px;
+	text-align: center;
+	display: block;
+}
+aside .signtag a {
+	width: 55px;
+	height: 60px;
+	border-bottom: 2px solid #252291;
+	color: #d1b7d9;
+	text-decoration: none;
+	display: block;
+}
+aside .signtag:hover a, aside .signtag.current a {
+	border-bottom: 2px solid #22b4e8;
+	color: #0a0909;
+	background: #fefefe;
+	background: -webkit-linear-gradient(top, #eaeaec, #fefefe);
+	background: -moz-linear-gradient(top, #eaeaec, #fefefe);
+	background: -ms-linear-gradient(top, #eaeaec, #fefefe);
+}
+aside .signtag .link .icon {
+	width: 36px;
+	height: 36px;
+	margin: 0px 7px;
+	background-image: url(https://news.pchome.com.tw/img/sg_sprt.png);
+	background-size: 500px 500px;
+	display: block;
+}
+aside .sg_aris .icon {
+	background-position: -2px 0px;
+}
+aside .sg_taurus .icon {
+	background-position: -40px 0px;
+}
+aside .sg_gemini .icon {
+	background-position: -80px 0px;
+}
+aside .sg_cancer .icon {
+	background-position: -120px 0px;
+}
+aside .sg_leo .icon {
+	background-position: -160px 0px;
+}
+aside .sg_virgo .icon {
+	background-position: -200px 0px;
+}
+aside .sg_libre .icon {
+	background-position: -240px 0px;
+}
+aside .sg_scorp .icon {
+	background-position: -280px 0px;
+}
+aside .sg_saget .icon {
+	background-position: -320px 0px;
+}
+aside .sg_capri .icon {
+	background-position: -360px 0px;
+}
+aside .sg_aqaur .icon {
+	background-position: -400px 0px;
+}
+aside .sg_pisces .icon {
+	background-position: -440px 0px;
+}
+aside .sg_aris:hover .icon, aside .current .sg_aris .icon {
+	background-position: -2px -40px;
+}
+aside .sg_taurus:hover .icon, aside .current .sg_taurus .icon {
+	background-position: -40px -40px;
+}
+aside .sg_gemini:hover .icon, aside .current .sg_gemini .icon {
+	background-position: -80px -40px;
+}
+aside .sg_cancer:hover .icon, aside .current .sg_cancer .icon {
+	background-position: -120px -40px;
+}
+aside .sg_leo:hover .icon, aside .current .sg_leo .icon {
+	background-position: -160px -40px;
+}
+aside .sg_virgo:hover .icon, aside .current .sg_virgo .icon {
+	background-position: -200px -40px;
+}
+aside .sg_libre:hover .icon, aside .current .sg_libre .icon {
+	background-position: -240px -40px;
+}
+aside .sg_scorp:hover .icon, aside .current .sg_scorp .icon {
+	background-position: -280px -40px;
+}
+aside .sg_saget:hover .icon, aside .current .sg_saget .icon {
+	background-position: -320px -40px;
+}
+aside .sg_capri:hover .icon, aside .current .sg_capri .icon {
+	background-position: -360px -40px;
+}
+aside .sg_aqaur:hover .icon, aside .current .sg_aqaur .icon {
+	background-position: -400px -40px;
+}
+aside .sg_pisces:hover .icon, aside .current .sg_pisces .icon {
+	background-position: -440px -40px;
+}
+aside .signmain {
+	width: 682px;
+	height: 638px;
+	color: #2b2723;
+	background: url(httpss://news.pchome.com.tw/img/bg_sgmain.jpg) no-repeat;
+}
+aside .signmain .title_box {
+	padding: 30px 20px 10px 20px;
+	color: #000;
+	font-size: 22px;
+	font-weight: bold;
+	vertical-align: baseline;
+	text-align: center;
+}
+aside .signmain .title_box .hdcopy, aside .signmain .title_box span, aside .signmain .title_box div {
+	display: inline-block;
+}
+*:first-child+html aside .signmain .title_box .hdcopy, *:first-child+html aside .signmain .title_box span, *:first-child+html aside .signmain .title_box div {
+	display: inline;
+}
+*html aside #horoscope .title_box .hdcopy, *html aside #horoscope .title_box span, *html aside #horoscope .title_box div {
+	display: inline;
+}
+aside .signmain .title_box .rightdeco {
+	line-height: 40px;
+	padding: 0 95px 0 0;
+	background: url(https://news.pchome.com.tw/img/title_left.png) no-repeat right top;
+}
+aside .signmain .title_box .leftdeco {
+	padding: 0 0 0 95px;
+	background: url(https://news.pchome.com.tw/img/title_right.png) no-repeat left top;
+}
+aside .signmain .daybox {
+	text-align: center;
+	*padding-top: 10px
+	zoom: 1;
+	overflow: hidden;
+}
+aside .signmain .daybox li {
+	color: #2b2723;
+	vertical-align: middle;
+	display: inline-block;
+	*display: inline;
+}
+aside .signmain .daybox span {
+	margin: 0 20px;
+	font-size: 18px;
+	display: block;
+}
+*html aside .signmain .daybox li {
+	vertical-align: middle;
+	display: inline;
+}
+*:first-child+html aside .signmain .daybox li {
+	vertical-align: middle;
+	display: inline;
+}
+*html aside .signmain .daybox span {
+	margin: 0 20px;
+	display: inline;
+}
+*:first-child+html aside .signmain .daybox span {
+	margin: 0 20px;
+	display: inline;
+}
+aside .signmain .pagebtn {
+	padding: 8px 12px;
+	*line-height: 35px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	color: #2b2723;
+	background-color: #e5e1ff;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .29), inset 0 0 5px #fff;
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .29), inset 0 0 5px #fff;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .29), inset 0 0 5px #fff;
+	border: solid 1px #a6a1c1;
+	background-image: -webkit-linear-gradient(bottom, #e5e1ff, #fff);
+	background-image: -moz-linear-gradient(bottom, #e5e1ff, #fff);
+	background-image: -o-linear-gradient(bottom, #e5e1ff, #fff);
+	background-image: -ms-linear-gradient(bottom, #e5e1ff, #fff);
+	background-image: linear-gradient(to top, #e5e1ff, #fff);
+	font-size: 13px;
+	display: block;
+	*display: inline;
+}
+aside .signmain .disable {
+	opacity: 0.5;
+	-moz-opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+aside .signmain .pagebtn:hover {
+	background: #e5e1ff;
+	color: #342ea2
+}
+aside .signmain .horocinfo {
+	padding: 0 50px 10px 50px;
+	margin-top: 10px;
+	zoom: 1;
+	overflow: hidden;
+}
+aside .sFl {
+	float: left;
+}
+aside .sFr {
+	float: left;
+	width: 220px;
+	padding: 0 0 0 15px;
+}
+aside .signmain .horocinfo img.thmb {
+	width: 135px;
+	height: auto;
+	margin-right: 15px;
+}
+aside .horocinfo .staus {
+	width: 350px;
+	font-size: 25px;
+}
+aside .horocinfo dl.rate {
+	padding: 20px 10px;
+}
+aside .horocinfo .rate dt {
+	clear: both;
+	float: left;
+	width: 60px;
+	height: 20px;
+	padding: 12px 15px;
+	margin-right: 10px;
+	color: #fff;
+	background: #a975c5;
+	font-size: 18px;
+	text-align: center;
+}
+aside .whl_star {
+	margin: -2px 0 3px 0;
+}
+aside .whl_star .pul_str, aside .whl_star .gry_str {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+aside .whl_star .pul_str {
+	background-position: -355px -84px;
+}
+aside .whl_star .gry_str {
+	background-position: -397px -84px;
+}
+aside .wrk_star li, .love_star li, .money_star li {
+	position: relative;
+	top: -2px;
+}
+aside .wrk_star .str, .wrk_star .gry_str, aside .love_star .str, aside .love_star .gry_str, aside .money_star .str, aside .money_star .gry_str {
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+aside .wrk_star .str {
+	background-position: -351px -122px;
+}
+aside .wrk_star .gry_str, .money_star .gry_str {
+	background-position: -425px -122px;
+}
+aside .love_star .str {
+	background-position: -399px -122px;
+}
+aside .love_star .gry_str {
+	background-position: -449px -122px;
+}
+aside .money_star .str {
+	background-position: -375px -122px;
+}
+aside .hrSPT {
+	background-image: url(https://news.pchome.com.tw/img/sg_sprt.png);
+	background-size: 500px 500px;
+}
+aside .horocinfo .dtl_staus {
+	width: 350px;
+	padding-bottom: 35px;
+	font-size: 16px;
+	background: url(https://news.pchome.com.tw/img/hsbg_div.png) bottom center no-repeat;
+}
+aside .horocinfo .noteitem {
+	clear: both;
+	color: #444;
+	font-size: 15px;
+	text-align: center;
+}
+aside .horocinfo .noteitem li {
+	padding: 5px 10px;
+	margin: 20px 0 5px 0;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	text-align: center;
+}
+aside .horocinfo .noteitem li span, aside .daily_fortune .luckitem span {
+	font-weight: bold;
+}
+aside .signmain .detail_box {
+	/*clear:both;*/
+	width: 604px;
+	height: 218px;
+	margin: auto;
+	background: url(https://news.pchome.com.tw/img/bg_luck.png) no-repeat left bottom;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .23);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .23);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .23);
+}
+aside .detail_box .innerMenu {
+	margin-bottom: 26px;
+	border-top: 1px solid #9b959f;
+	border-bottom: 1px solid #9b959f;
+	border-left: 1px solid #9b959f;
+}
+aside .detail_box .innerMenu .wrap {
+	height: 38px;
+}
+aside .detail_box .outter {
+	width: 439px;
+	margin: auto;
+	padding: 25px 0 0 0;
+}
+aside .detail_box .innerMenu ul li.active {
+	background: #444;
+}
+aside .detail_box .innerMenu ul li {
+	position: relative;
+	float: left;
+	width: 145px;
+	height: 38px;
+	line-height: 38px;
+	border-right: 1px solid #9b959f;
+	background: #fff;
+	text-align: center;
+}
+aside .detail_box .innerMenu ul li.active a {
+	color: #fff;
+}
+aside .detail_box .innerMenu ul li a {
+	color: #444;
+	font-size: 16px;
+	text-decoration: none;
+	display: block;
+}
+aside .detail_box .innerMenu ul li a:hover {
+	color: #fff;
+	background: #444;
+}
+aside .detail_box .innerMenu ul li.active .inxArrow {
+	display: block;
+}
+aside .detail_box .innerMenu ul li .inxArrow {
+	position: absolute;
+	bottom: -8px;
+	left: 50%;
+	z-index: 10;
+	width: 0px;
+	height: 0px;
+	margin-left: -8px;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-top: 8px solid #444;
+	display: none;
+}
+aside .detail_box .horoMessage {
+	font-size: 16px;
+}
+aside .horoMessage table th {
+	width: 65px;
+	padding: 0 20px 15px 0;
+	color: #2294e8;
+	letter-spacing: 2px;
+	font-weight: bold;
+	white-space: nowrap;
+	text-align: left;
+	vertical-align: top;
+}
+aside .horoMessage table td {
+	line-height: 22px;
+	text-align: left;
+	vertical-align: top;
+}
+aside .professorBlock {
+	position: relative;
+	width: 682px;
+	height: 293px;
+	padding: 0px;
+	margin: 8px 0 0 0;
+	background: url(https://news.pchome.com.tw/img/bg_drmon.jpg);
+}
+aside .professorBlock .intro {
+	position: absolute;
+	top: 84px;
+	left: 42px;
+	width: 200px;
+	height: 200px;
+	line-height: 20px;
+	color: #fff;
+	font-size: 13px;
+}
+aside .professorBlock .intro h3 {
+	line-height: 20px;
+	padding: 10px 0 5px 0;
+	color: #ff6b6f;
+	font-weight: bold;
+	font-size: 15px;
+	text-align: center;
+}
+aside .professorBlock .intro h4 {
+	line-height: 30px;
+	padding: 5px 0 16px 0;
+	font-family: serif;
+	font-weight: bold;
+	font-size: 26px;
+	text-align: center;
+}
+aside .professorBlock .oneword {
+	position: relative;
+	top: 138px;
+	left: 242px;
+	width: 335px;
+	height: 125px;
+	background-position: -499px -81px;
+	display: table;
+}
+aside .professorBlock .oneword .txt {
+	*position: absolute;
+	*top: 50%;
+	*width: 100%;
+	padding: 0px 50px;
+	color: #fff;
+	font-size: 24px;
+	display: table-cell;
+	*display: block;
+	vertical-align: middle;
+}
+aside .professorBlock .oneword .txt span {
+	*position: relative;
+	*top: -50%;
+}
+aside .fortune_app {
+	width: 642px;
+	height: 542px;
+	padding: 15px 20px 10px 20px;
+	margin: 8px 0;
+	background: url(https://news.pchome.com.tw/img/bg_sky.jpg) no-repeat;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .23);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .23);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .23);
+}
+aside .fortune_app h2 {
+	width: 327px;
+	height: 46px;
+	margin: auto;
+	background-position: 2px -456px;
+}
+aside .fortune_app .sbtit {
+	width: 415px;
+	padding: 20px 0;
+	*padding: 10px 0;
+	margin: 0 auto;
+	color: #fff;
+	font-size: 13px;
+}
+aside .app_renji {
+	position: relative;
+	*border-bottom: 1px solid #95806c;
+	text-align: center;
+}
+aside .app_renji:after {
+	content: "";
+	position: absolute;
+	left: 7px;
+	bottom: 0;
+	width: 611px;
+	height: 1px;
+	background: -webkit-linear-gradient(left, #95806c, #232871);
+	background: -o-linear-gradient(right, #232871, #95806c);
+	background: -moz-linear-gradient(right, #232871, #95806c);
+	background: linear-gradient(to right, #95806c, #232871);
+}
+aside .app_renji:last-child:after {
+	background: none;
+}
+aside .app_renji li {
+	width: 294px;
+	margin: 5px 25px 5px 0;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+aside .app_renji li a {
+	float: left;
+	height: 70px;
+	color: #fff;
+	font-size: 13px;
+	zoom: 1;
+	text-align: left;
+	display: block;
+	overflow: hidden;
+}
+aside .app_renji li a:hover {
+	color: #e5e1ff;
+	text-decoration: none;
+}
+aside .app_renji li a:hover h4 {
+	color: #95806c;
+	text-decoration: none;
+}
+aside .app_renji li a h4 {
+	line-height: 34px;
+	color: #c390df;
+	font-size: 20px;
+}
+aside .app_renji li .thmb {
+	float: left;
+	width: 70px;
+	height: 70px;
+	margin-right: 10px;
+}
+aside .thmb.app_cal {
+	background-position: -139px -272px;
+}
+aside .thmb.app_name {
+	background-position: -70px -272px;
+};=
+aside .thmb.app_fushui {
+	background-position: 0px -272px;
+}
+aside .thmb.app_monk {
+	background-position: 80px -203px;
+}
+aside .thmb.app_malin {
+	background-position: 148px -203px;
+}
+aside .thmb.app_eightw {
+	background-position: 220px -203px;
+}
+aside .thmb.app_zuwei {
+	background-position: -210px -203px;
+}
+aside .thmb.app_rojin {
+	background-position: 361px -203px;
+}
+aside .thmb.app_fortl {
+	background-position: 430px -203px;
+}
+aside .thmb.app_tarot {
+	background-position: 500px -203px;
+}
+aside .fortuneBlock .cut {
+	width: 300px;
+	height: 87px;
+	background: url(https://news.pchome.com.tw/img/bg_s_horoscope.jpg) no-repeat;
+}
+
+aside .daily_fortune .cut .rate dt {
+	position: relative;
+	font-size: 15px;
+}
+aside .daily_fortune.cut .rate dt .button {
+	float: right;
+	height: 20px;
+	line-height: 20px;
+	padding: 0 8px;
+	margin: 0 7px 0 0;
+	border-radius: 5px;
+	background: #fff;
+	border: 1px solid #dfdfdf;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: normal;
+	display: block;
+	text-indent: 0;
+}
+aside .daily_fortune {
+	width: 300px;
+	height: 133px;
+	background: url(https://news.pchome.com.tw/img/bg_horoscope.jpg) no-repeat;
+}
+aside .daily_fortune .hrline {
+	padding: 6px 0 6px 48px;
+	color: #fff;
+	font-size: 18px;
+	overflow: auto;
+}
+aside .daily_fortune .hrline .more {
+	float: right;
+	width: 70px;
+	height: 20px;
+	padding: 3px 8px;
+	color: #ead0ed;
+	font-size: 13px;
+	font-weight: bold;
+	text-align: right;
+	display: block;
+}
+aside .daily_fortune .rate {
+	padding: 0;
+}
+aside .daily_fortune .rate .whl_star {
+	/*margin-top: -8px;*/
+}
+aside .daily_fortune .rate dt {
+	width: 100%;
+	padding: 8px 0 0 0;
+	font-size: 15px;
+	text-indent: 5px;
+	font-weight: bold;
+}
+aside .daily_fortune .sign {
+	width: 55px;
+	height: 55px;
+	margin: 10px 0 10px 10px;
+	display: block;
+}
+
+/* 牡羊 */
+aside .daily_fortune .sign.sg1 {
+	background-position: 0px -344px;
+}
+/* 金牛 */
+aside .daily_fortune .sign.sg2 {
+	background-position: -56px -344px;
+}
+/* 雙子 */
+aside .daily_fortune .sign.sg3 {
+	background-position: -112px -344px;
+}
+/* 巨蟹 */
+aside .daily_fortune .sign.sg4 {
+	background-position: -168px -344px;
+}
+/* 獅子 */
+aside .daily_fortune .sign.sg5 {
+	background-position: -224px -344px;
+}
+/* 處女 */
+aside .daily_fortune .sign.sg6 {
+	background-position: -280px -344px;
+}
+/* 天秤 */
+aside .daily_fortune .sign.sg7 {
+	background-position: -336px -344px;
+}
+/* 天蠍 */
+aside .daily_fortune .sign.sg8 {
+	background-position: -392px -344px;
+}
+/* 射手 */
+aside .daily_fortune .sign.sg9 {
+	background-position: 0px -400px;
+}
+/* 魔羯 */
+aside .daily_fortune .sign.sg10 {
+	background-position: -56px -400px;
+}
+/* 水瓶 */
+aside .daily_fortune .sign.sg11 {
+	background-position: -112px -400px;
+}
+/* 雙魚 */
+aside .daily_fortune .sign.sg12 {
+	background-position: -168px -400px;
+}
+
+aside .daily_fortune .luckitem {
+	padding: 0 13px 0 0;
+}
+aside .daily_fortune .luckitem li {
+	font-size: 13px;
+	font-weight: bold;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	text-align: center;
+}
+
+/* 01-3. 樂透 */
+aside .pertit {
+	line-height: 25px;
+	padding: 8px 7px 5px;
+	color: #000;
+}
+aside .pertit.fortune {
+	padding: 8px 7px 0;
+}
+aside .pertit .date {
+	float: left;
+	font-size: 15px;
+}
+aside .pertit .ymd {
+	float: left;
+	font-weight: bold;
+	letter-spacing: 1px;
+	padding: 0 3px 0;
+}
+aside .pertit .button a {
+	float: right;
+	height: 20px;
+	line-height: 20px;
+	padding: 0 8px;
+	border: 1px #dfdfdf solid;
+	border-radius: 5px;
+	background: #fff;
+	font-size: 12px;
+	display: block;
+}
+aside .pertit .cnldr {
+	float: left;
+	width: 220px;
+	padding: 0 5px;
+	font-size: 16px;
+}
+aside .pertit .cnldr li:nth-child(2) {
+	font-size: 15px;
+}
+
+aside .lottebx:first-child {
+	border: none;
+}
+aside .lottebx {
+	height: 33px;
+    padding: 0 5px 0 2px;
+	border-top: 1px solid #e4e4e4;
+}
+aside .lottebx a {
+	float: left;
+	height: 10%;
+    display: inline-block;
+}
+aside .lottebx .lotlogo {
+	float: left;
+	width: 85px;
+	height: 33px;
+	background: url(https://news.pchome.com.tw/img/lottelogos.png) no-repeat;
+	text-indent: -9999px;
+}
+aside .lotlogo.lot1 {
+	background-position: center 0;
+}
+aside .lotlogo.lot2 {
+	background-position: center -33px;
+}
+aside .lotlogo.lot3 {
+	background-position: center -66px;
+}
+aside .lotlogo.lot4 {
+	background-position: center -99px;
+}
+aside .lotlogo.lot5 {
+	background-position: center -132px;
+}
+aside .lotlogo.lot6 {
+	background-position: center -165px;
+}
+aside .lotlogo.lot7 {
+	background-position: center -198px;
+}
+aside .lotlogo.lot8 {
+	background-position: center -231px;
+}
+aside .lotlogo.lot9 {
+	background-position: center -264px;
+}
+aside .lottebx ul {
+	margin: 5px 0;
+	font-size: 13px;
+	font-weight: bold;
+	display: inline-block;
+	overflow: hidden;
+}
+aside .lottebx ul li {
+	float: left;
+	width: 23px;
+	height: 23px;
+	line-height: 23px;
+	margin: 0 3px 0 0;
+	border-radius: 100%;
+	color: #fff;
+	text-align: center;
+	display: block;
+}
+aside .lottebx ul li.spn {
+	background: #ffa000 !important;
+}
+aside .lottebx i {
+	line-height: 26px;
+	color: #484848;
+	font-size: 12px;
+	font-style: normal;
+}
+aside .lottebx i u {
+	color: #ff5a00;
+	font-size: 14px;
+	text-decoration: none;
+}
+aside .receiptBK {
+	border-top: 1px solid #e4e4e4;
+}
+aside .receiptbx {
+	height: 42px;
+	padding: 5px 0px;
+	border-top: 1px solid #e4e4e4;
+}
+aside .receiptbx .title {
+	float: left;
+	width: 124px;
+	line-height: 42px;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+}
+aside .receiptbx .number {
+	float: right;
+	width: 170px;
+	line-height: 42px;
+	letter-spacing: 1px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/* 01-4. 空氣品質 */
+aside .airBlock ul {
+	width: 100%;
+	height: 107px;
+	box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 13px;
+    display: block;
+    letter-spacing: 1px;
+    overflow: hidden;
+}
+aside .airBlock ul li {
+	width: 100%;
+	height: 50%;
+	display: block;
+}
+aside .airBlock ul li a {
+	color: white;
+	display: block;
+}
+aside .airBlock ul li a:hover {
+	color: white;
+}
+aside .airBlock ul li a:hover .locate {
+	text-decoration: underline;
+}
+aside .airBlock ul li a > img {
+	float: left;
+	width: 42px;
+    height: 42px;
+    margin: 5px 9px;
+	display: inline-block;
+}
+aside .airBlock ul li a > div {
+	float: left;
+	width: calc(100% - 65px);
+	height: 100%;
+	display: inline-block;
+	font-weight: bold;
+}
+aside .airBlock ul li a > div .locate {
+	float: left;
+	width: 100px;
+	height: 29px;
+	line-height: 30px;
+	display: inline-block;
+}
+aside .airBlock ul li a > div .locate img {
+	float: left;
+    width: 15px;
+    padding: 5px 3px 0;
+    display: inline-block;
+}
+aside .airBlock ul li a > div em {
+	position: relative;
+	float: left;
+	width: 120px;
+	height: 19px;
+	margin: 5px;
+	display: inline-block;
+	color: gray;
+	border-radius: 3px;
+	background: white;
+	text-align: center;
+    letter-spacing: 0px;
+}
+aside .airBlock ul li a > div em::before {
+	position: absolute;
+    top: 5px;
+    left: -5px;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 7px 5px 0;
+    border-color: transparent #ffffff transparent transparent;
+}
+aside .airBlock ul li a > div span {
+	float: left;
+	width: 50%;
+	height: calc(100% - 29px);
+	line-height: 18px;
+	font-size: 11px;
+	text-indent: 6px;
+}
+aside .airBlock ul li a > div span strong {
+	font-size: 20px;
+	font-weight: 900;
+	padding: 0 5px;
+	opacity: .7;
+	letter-spacing: 2px;
+}
+aside .airBlock ul li.status1 {
+	background: #40b243;
+}
+aside .airBlock ul li.status2 {
+	background: #ffc600;
+}
+aside .airBlock ul li.status3 {
+	background: #ff9100;
+}
+aside .airBlock ul li.status4 {
+	background: #ef4037;
+}
+aside .airBlock ul li.status5 {
+	background: #9747a0;
+}
+aside .airBlock ul li.status6 {
+	background: #702236;
+}
+aside .airBlock ul li.status1 em {
+	color: #118214;
+}
+aside .airBlock ul li.status2 em {
+	color: #d8a800;
+}
+aside .airBlock ul li.status3 em {
+	color: #cf7500;
+}
+aside .airBlock ul li.status4 em {
+	color: #bf0900;
+}
+aside .airBlock ul li.status5 em {
+	color: #671970;
+}
+aside .airBlock ul li.status6 em {
+	color: #400514;
+}
+aside .airBlock ul li i {
+	font-style: normal;
+    font-family: "Noto Sans TC","微軟正黑體", Microsoft JhengHei, "儷黑 Pro", Arial, Helvetica, sans-serif;
+}
+
+
+/* 02. AD 300x100 */
+
+
+/* 03. 焦點+專題 - OLD */
+aside .aside_spots, aside .aside_hotvote {
+	width: 298px !important;
+	background: #fff !important;
+	color: #fff !important;
+}
+aside .aside_spots_c, aside .aside_hotvote_0 {
+	border-top: none !important;
+}
+aside .aside_spots .headline, aside .aside_hotvote .headline {
+	float: left !important;
+	width: 42px !important;
+	height: 32px !important;
+	line-height: 32px !important;
+	margin: 0 5px 0 0 !important;
+	font-size: 15px !important;
+	text-align: center !important;
+	font-family: "Noto Sans TC" !important;
+}
+aside .aside_spots a, aside .aside_hotvote a {
+	height: 32px !important;
+	line-height: 32px !important;
+	font-size: 17px !important;
+	font-weight: bold !important;
+	text-align: left !important;
+	text-shadow: none !important;
+}
+aside .border_0 {
+	border-bottom: none !important;
+}
+
+
+/* 03. 專題 -NEW
+aside .aside_spots {
+	position: relative;
+	width: 298px;
+	max-height: 200px;
+	overflow: hidden;
+}
+aside .aside_spots a img {
+	width: 100%;
+	display: block;
+	transform: scale(1);
+	-webkit-filter: brightness(100%);
+	-moz-filter: brightness(100%);
+	filter: brightness(100%);
+}
+aside .aside_spots a:hover img {
+	transform: scale(1.2);
+	-webkit-filter: brightness(130%);
+	-moz-filter: brightness(130%);
+	filter: brightness(130%);
+	transition: all .65s ease;
+}
+aside .aside_spots a .headline {
+	position: absolute;
+	bottom: 30px;
+	left: 0;
+	z-index: 5;
+	width: 278px;
+	height: 20px;
+	line-height: 20px;
+	padding: 10px;
+	margin: 0;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	color: #fff;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+aside .aside_spots a:hover .headline {
+	bottom: 50%;
+	margin: 0 0 -20px;
+	transition: all .5s ease;
+}
+*/
+
+
+/* 04. 大盤指數 */
+aside .aside_stk {
+	border-top: 5px solid #f0414d;
+	background: #fff;
+	font-weight: bold;
+	letter-spacing: .5px;
+}
+aside .aside_stk .t_stk {
+	float: left;
+	width: 284px;
+	height: 25px;
+	line-height: 26px;
+	padding: 7px 8px 3px;
+	display: block;
+}
+aside .aside_stk .t_stk a {
+	float: left;
+	height: 22px;
+	line-height: 22px;
+	padding: 0 3px;
+	margin: 1px 3px 1px 0;
+	font-size: 13px;
+	color: #fff;
+	border-radius: 1px;
+	display: inline-block;
+}
+aside .aside_stkred .t_stk a {
+	background: #ea313f;
+}
+aside .aside_stkgreen .t_stk a {
+	background: #299c12;
+}
+aside .aside_stkred .t_stk b, aside .aside_stk ul li.red b {
+	color: #ea313f;
+}
+aside .aside_stkgreen .t_stk b, aside .aside_stk ul li.green b  {
+	color: #299c12;
+}
+aside .aside_stk ul {
+	clear: both;
+	width: 300px;
+	hieght: 30px;
+	background: pink;
+	font-size: 13px;
+	font-weight: bold;
+	display: block;
+	text-align: center;
+}
+aside .aside_stk ul li {
+	float: left;
+	width: 50%;
+	padding: 0 0 8px;
+	line-height: 18px;
+	display: inline-block;
+}
+aside .aside_stk b {
+	font-size: 16px;
+	font-family: 'Roboto';
+}
+aside .aside_stk ul li a {
+	letter-spacing: 0;
+}
+aside .aside_stk ul li a b {
+	font-size: 12px;
+	letter-spacing: .5px;
+}
+aside .aside_stk #srch {
+	float: right;
+}
+aside .aside_stk .si01 {
+	float: left;
+	width: 65px;
+	height: 22px;
+	overflow: hidden;
+}
+aside .aside_stk .si01 input {
+	float: left;
+	width: 55px;
+	height: 16px;
+	line-height: 18px;
+	padding: 3px 5px;
+	font-size: 12px;
+	font-family: 'Roboto';
+	font-weight: normal;
+	letter-spacing: 1px;
+	color: #fff;
+	background: #777;
+	border: 0;
+}
+aside .aside_stk .si01 input:focus {
+	background: #666;
+}
+aside .aside_stk .si02 {
+	float: left;
+	width: 24px;
+	height: 22px;
+	line-height: 22px;
+	background: #777 url(https://news.pchome.com.tw/img/srch_btn.png) center center no-repeat;
+	border: 0;
+	cursor: pointer;
+}
+aside .aside_stk .si02:hover {
+	background: #ea313f url(https://news.pchome.com.tw/img/srch_btn.png) center center no-repeat;
+}
+
+
+/* 05. AD 300x250 */
+
+
+/* 06. 單則新聞 */
+aside .aside_news {
+	width: 286px;
+	height: 113px;
+	padding: 6px;
+	background: #fff;
+	display: block;
+	overflow: hidden;
+}
+aside .aside_news .tit a {
+	height: 25px;
+	line-height: 26px;
+	margin: 0 0 6px 0;
+	font-size: 23px;
+	font-weight: bold;
+	display: block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+aside .aside_news .txt a {
+	width: 195px;
+	height: 80px;
+	line-height: 19px;
+	margin: 3px 0 0 0;
+	font-size: 13px;
+	display: inline-block;
+	overflow: hidden;
+}
+aside .aside_news .txt a {
+	text-decoration: none;
+}
+aside .aside_news .txt a u {
+	padding: 1px 6px;
+	color: #fff;
+	font-size: 12px;
+}
+aside .aside_news .img {
+	float: left;
+	width: 80px;
+	height: 80px;
+	padding: 1px;
+	margin: 0 9px 0 0;
+	background: #f1f1f1;
+	vertical-align: middle;
+	text-align: center;
+	display: table-cell;
+	overflow: hidden;
+}
+aside .aside_news .img span {
+	height: 100%;
+	display: inline-block;
+}
+aside .aside_news .img img {
+	max-width: 80px;
+	max-height: 80px;
+}
+aside .aside_news .img * {
+	vertical-align: middle;
+	text-align: center;
+}
+
+
+/* 07. 名人榜 */
+aside .aside_rakplcorp {
+	padding: 5px;
+	background: #fff;
+}
+aside .aside_rakplcorp .hd {
+	height: 30px;
+	line-height: 30px;
+	padding: 5px 0 0 0;
+	border-bottom: 1px solid #ececec;
+}
+aside .aside_rakplcorp .hd h3 {
+	float: left;
+	line-height: 22px;
+	margin: 2px 7px;
+	border-left-width: 5px;
+	border-left-style: solid;
+	color: #000;
+	background: #fff;
+	font-size: 18px;
+	-webkit-font-smoothing: antialiased;
+}
+aside .aside_rakplcorp .hd h3 span {
+	padding: 0px 5px;
+}
+aside .aside_rakplcorp .bd {
+	position: relative;
+	height: 213px;
+}
+aside .aside_rakplcorp .bd {
+	position: relative;
+	height: 213px;
+}
+aside .rakpc-tab {
+	position: absolute;
+	top: -37px;
+	right: 0;
+	height: 31px;
+	border-top: 1px solid #d8d8d8;
+	border-right: 1px solid #d8d8d8;
+	background: #fff;
+	overflow: hidden;
+}
+aside .rakpc-tab li, aside .rakpc-tab li a {
+	float: left;
+}
+aside .rakpc-tab li.active a {
+	border-bottom: 1px solid #fff;
+	color: #333;
+}
+aside .rakpc-tab li a:link, aside .rakpc-tab li a:visited {
+	width: 62px;
+	height: 29px;
+	background: #fff;
+	font-size: 15px;
+	line-height: 30px;
+	color: #999;
+	text-align: center;
+	border-left: 1px solid #d8d8d8;
+	border-bottom: 1px solid #d8d8d8;
+}
+aside .rakpc-tab li.active a {
+	border-bottom: 1px solid #fff;
+	color: #333;
+}
+aside .rakpc-tab li, aside .rakpc-tab li a {
+	float: left;
+}
+aside .toptem {
+	position: relative;
+	width: 270px;
+	height: 90px;
+	margin: 6px 0 5px 20px;
+	background: #f6f7f8;
+}
+aside .toptem .top-pic {
+	float: left;
+	width: 80px;
+	height: 80px;
+	margin: 5px 8px 0px 20px;
+	border-radius: 80px;
+	overflow: hidden;
+}
+aside .toptem .top-pic img {
+	height: 80px;
+}
+aside .toptem .top-txt .intro {
+	height: 55px;
+	font-size: 13px;
+	overflow: hidden;
+	line-height: 18px;
+}
+aside .toptem .top-txt h4 {
+	padding: 3px 0 0 0;
+	font-size: 18px;
+	font-weight: bold;
+}
+aside .toptem .top-txt h4:hover {
+	text-decoration: underline;
+}
+aside .toptem .top-txt .detail {
+	position: absolute;
+	top: 0;
+	right: 0;
+	line-height: 16px;
+	padding: 3px 6px;
+	border: 0;
+	color: #fff;
+	font-size: 12px;
+	overflow: hidden;
+}
+aside .bottem {
+	margin: 6px 0 0 -8px;
+	overflow: hidden;
+}
+aside .rank-list-item {
+	position: relative;
+	float: left;
+	width: 120px;
+	height: 116px;
+	margin: 0 0 0 28px;
+	background: #f6f7f8;
+	text-align: center;
+	display: inline;
+}
+aside .rank-list-item a {
+	font-size: 18px;
+	font-weight: bold;
+	display: block;
+}
+aside .rank-list-item img {
+	height: 84px;
+	display: block;
+}
+aside .rank-list-item .txt {
+	height: 27px;
+	line-height: 16px;
+	padding: 1px 5px 6px;
+	background: #f6f7f8;
+	text-align: left;
+	word-wrap: break-word;
+	word-break: break-all;
+	overflow: hidden;
+}
+aside .rank-list-item .botm-pic {
+	width: 80px;
+	height: 80px;
+	margin: 5px auto;
+	border-radius: 80px;
+	overflow: hidden;
+}
+aside .toptem .rk, .bottem .rk {
+	position: absolute;
+	left: -25px;
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	font-size: 15px;
+	text-align: center;
+}
+aside .toptem .rk {
+	color: #fff;
+}
+aside .bottem .rk {
+	color: #fff;
+}
+
+
+/* 08. 投票區塊 */
+aside .aside_voting {
+	width: 298px;
+	color: #fff;
+	background: #f4f4f4;
+}
+aside .aside_voting b {
+	width: 70px;
+	height: 24px;
+	line-height: 24px;
+	margin: 0 0 0 15px;
+	background: #777;
+	font-size: 13px;
+	font-weight: normal;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+}
+aside .aside_voting p {
+	margin: 10px 15px;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: left;
+	display: block;
+}
+aside .aside_voting ul li {
+	margin: 0 0 5px 15px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: left;
+}
+aside .aside_voting ul li i {
+	margin: 0 0 0 10px;
+	font-size: 15px;
+	font-family: 'Roboto', "Noto Sans TC","微軟正黑體", "儷黑 Pro", Microsoft JhengHei, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-style: normal;
+	letter-spacing: 1px;
+}
+aside .aside_voting ul li u {
+	position: relative;
+	width: 220px;
+	height: 8px;
+	margin: 2px 0 0 23px;
+	border-radius: 8px;
+	background: #ccc;
+	display: block;
+	overflow: hidden;
+}
+aside .aside_voting ul li u div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 34%;
+	height: 8px;
+	border-radius: 8px;
+}
+aside .aside_voting input {
+	width: 90px;
+	height: 30px;
+	padding: 0;
+	margin: 10px 10px 12px;
+	border: none;
+	color: #fff;
+	font-size: 15px;
+	font-weight: bold;
+	cursor: pointer;
+}
+aside .aside_voting input.actived {
+	border: 1px solid #000;
+	color: #a9a9a9;
+	background: #000;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIyNyUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNDc0NzQ3IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+	background: -moz-linear-gradient(top, #000000 27%, #474747 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(27%, #000000), color-stop(100%, #474747));
+	background: -webkit-linear-gradient(top, #000000 27%, #474747 100%);
+	background: -o-linear-gradient(top, #000000 27%, #474747 100%);
+	background: -ms-linear-gradient(top, #000000 27%, #474747 100%);
+	background: linear-gradient(to bottom, #000000 27%, #474747 100%);
+	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#474747', GradientType=0);
+	text-shadow: none;
+	filter: none);
+}
+aside .aside_voting ul li input {
+	width: 16px;
+	height: 16px;
+	padding: 0;
+	margin: 0 3px;
+}
+aside .aside_voting ul li.star {
+	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6N0QxNDgzRDZEMUJBMTFFMkIwQjI4NDJENDA3NDY1NkQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6N0QxNDgzRDdEMUJBMTFFMkIwQjI4NDJENDA3NDY1NkQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3RDE0ODNENEQxQkExMUUyQjBCMjg0MkQ0MDc0NjU2RCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo3RDE0ODNENUQxQkExMUUyQjBCMjg0MkQ0MDc0NjU2RCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvMQkfkAAADsSURBVHjaYvz//z8DNQEj7Qz8LEOZSbxPwBQTkcqdoJggYCHGF0DcBsQgr1gSUkyMC32B2ByILYDYj1IDQfKtSPxWQnpYcHhRDYiNgdgdiHWQ5EDsuUC8G4jPAvEtaFDgjOVJQBwPxHxERtYnIF4IxHm4YrkLqoiBBAO78IUhyBpPIH5NhGEgNW5QPXgj5Qo0Zr/hMewbVM11YmP5JNRgXOAKVA1JyUYej5wcqemQHYjFkfh/oBgGJKBqiDYQ5rrfQDwPiNWBWAPK/o3PlbgMBLlgNjSBJwPxPSC+C2WrQ+UkBlXxNXAlNkCAAQCHhj1bQxosyQAAAABJRU5ErkJggg==') 0 0 no-repeat;
+}
+aside .aside_voting .voteform ul li {
+	padding: 0 10px 0 0;
+	overflow: hidden;
+}
+aside .aside_voting .voteform ul li input {
+	float: left;
+	width: 18px;
+	height: 18px;
+	margin: 7px 5px 0 0;
+	display: block;
+	border: none;
+}
+aside .aside_voting .btns {
+	padding: 0 0 0 39px;
+}
+aside .aside_voting input[type="radio"] {
+	background: transparent;
+}
+aside .aside_voting input[type="radio"] + label {
+	background: transparent;
+}
+aside .aside_voting input[type="radio"]:checked + label {
+	background: transparent;
+}
+
+
+/* 09. 熱門專題 */
+aside .aside_topics {
+	width: 280px;
+	line-height: 22px;
+	padding: 5px 9px 9px 9px;
+	font-size: 13px;
+	background: #ffc3b0 url(https://news.pchome.com.tw/img/popular_topics.gif) 10px 6px no-repeat;
+}
+aside .aside_topics span {
+	padding: 2px 4px;
+	margin: 3px;
+	color: #fff;
+	font-size: 12px;
+}
+aside .aside_topics b {
+	padding-left: 28px;
+	color: #000;
+	font-size: 15px;
+}
+aside .aside_topics ul {
+	margin: 5px 0 0 0;
+	padding: 5px;
+	background: #fff;
+}
+aside .aside_topics ul li {
+	width: auto;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+	overflow: hidden;
+}
+aside .aside_topics u {
+	text-align: right;
+	display: block;
+}
+
+
+/* 10. 商品關鍵字 */
+aside .ad_ec001 {
+	float: left;
+	padding: 0 0 10px;
+	font-family: "Noto Sans TC", "微軟正黑體", "儷黑 Pro", Microsoft JhengHei, Arial, Helvetica, sans-serif;
+}
+aside .ad_ec001 p {
+	background: #eee url(https://adpic.pchome.com.tw/adpics/ec001_icon.png) 5px 50% no-repeat;
+}
+aside .ad_ec001>i u {
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px dotted #999;
+}
+aside .ad_ec001>i u.selected {
+	background: #eee;
+}
+aside .ad_ec001 b a u {
+	font-weight: bold;
+	font-family: "Noto Sans TC","微軟正黑體", "儷黑 Pro", Microsoft JhengHei, Arial, Helvetica, sans-serif;
+}
+
+
+/* 11. 新聞字典 */
+aside .aside_word {
+	float: left;
+	line-height: 24px;
+	padding: 12px;
+	border: 15px solid #e0e0e0;
+	background: #fff;
+	font-size: 13px;
+	display: block;
+}
+aside .aside_word a {
+	line-height: 20px;
+	padding: 3px 6px;
+	margin-left: 3px;
+	color: #fff;
+	font-size: 12px;
+}
+aside .aside_word a:hover {
+	color: #fff;
+}
+aside .aside_word b {
+	float: left;
+	padding: 5px 10px;
+	margin: -18px auto auto -18px;
+	color: #fff;
+	font-size: 15px;
+	font-weight: bold;
+}
+aside .aside_word span {
+	float: left;
+	margin: -5px auto auto 6px;
+	font-size: 18px;
+	font-weight: bold;
+}
+aside #aside_word {
+	cursor:pointer;
+}
+
+
+/* 12. 名人專欄 */
+aside .aside_celebs {
+	width: 300px;
+	background: url(https://news.pchome.com.tw/img/celebtm.png) center bottom no-repeat;
+	overflow: hidden;
+}
+aside .aside_celebs a {
+	clear: both;
+	width: 100%;
+	height: 25px;
+	font-size: 15px;
+	display: inline-block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+aside .aside_celebs h4 {
+	float: left;
+	width: 300px;
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+	text-indent: 10px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+aside .aside_celebs h4 a {
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	display: inline;
+}
+aside .aside_celebs h4 a:hover {
+	color: #fff;
+}
+aside .aside_celebs div {
+	float: left;
+	width: 280px;
+	padding: 7px 10px;
+	color: #666;
+	background: #fff;
+	font-size: 14px;
+}
+aside .aside_celebs p {
+	float: left;
+	width: 100%;
+	line-height: 20px;
+	padding: 0 0 7px;
+	border-bottom: 1px dotted #ccc;
+}
+aside .aside_celebs p img {
+	float: left;
+	width: 110px;
+	margin: 3px 10px 0 0;
+}
+aside .aside_celebs ul {
+	float: left;
+	width: 100%;
+	margin: 6px 0 0;
+	font-weight: bold;
+}
+aside .aside_celebs ul li {
+	float: left;
+	width: 100%;
+	height: 25px;
+	display: block;
+}
+aside .aside_celebs ul li em {
+	float: left;
+	padding: 2px 4px;
+	margin: 0 3px 0 0;
+	color: #fff;
+	font-size: 12px;
+	font-style: normal;
+	display: block;
+}
+
+
+/* 13. 今日必買 */
+aside .ad_ec004 {
+	width: 298px;
+	height: auto;
+	margin: 0;
+}
+aside .ad_ec004 p {
+	text-indent: 0;
+}
+aside .ad_ec004 p:before {
+	content: "BUY";
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	padding: 0 5px;
+	margin: 5px;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	display: inline-block;
+}
+aside .ad_ec004 b {
+	height: 160px;
+	background: #fff;
+}
+aside .ad_ec004 b i>ul li a em {
+	font-family:"Noto Sans TC","微軟正黑體", "儷黑 Pro", Microsoft JhengHei, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+
+/* 14. 活動快訊 */
+aside .aside_eventflash {
+	width: 280px;
+	line-height: 22px;
+	padding: 5px 9px 9px 9px;
+	background: #f4f4f4;
+	font-size: 13px;
+}
+aside .aside_eventflash b {
+	padding-left: 2px;
+	font-size: 15px;
+}
+aside .aside_eventflash ul {
+	padding: 5px;
+	margin: 5px 0 0 0;
+	background: #fff;
+}
+aside .aside_eventflash ul li {
+	width: auto;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+	overflow: hidden;
+}
+aside .aside_eventflash u {
+	text-align: right;
+	display: block;
+	text-decoration: none;
+}
+aside .aside_eventflash .more a {
+	padding: 3px 6px;
+	color: #fff;
+	font-size: 12px;
+}
+
+
+/* 15. 熱銷/人氣排行 */
+aside .ad_ec003 {
+
+}
+aside .ad_ec003 b>u {
+	background: #eee;
+	font-weight: bold;
+}
+aside .ad_ec003 b>u.on {
+	background: #ffded3;
+}
+aside .ad_ec003 b>ul li {
+	border-bottom: 1px dotted #999;
+}
+aside .ad_ec003 b>ul li a span u {
+	font-family: "Noto Sans TC","微軟正黑體", "儷黑 Pro", Microsoft JhengHei, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+aside .ad_ec003 b>ul li a p>em {
+	font-size: 12px;
+}
+
+
+
+/* 16. 合作媒體 */
+aside .aside_cooper {
+	width: 282px;
+	padding: 10px 8px 8px;
+	line-height: 22px;
+	background: #fff;
+	font-size: 13px;
+	overflow: hidden;
+}
+aside .aside_cooper b {
+	padding: 0 0 5px 2px;
+	font-size: 15px;
+	text-align: center;
+	display: block;
+}
+aside .aside_cooper ul {
+	float: left;
+	width: 94px;
+}
+aside .aside_cooper ul li {
+	height: 25px;
+}
+
+
+/* EX1. 最新新聞列表 */
+aside .aside_newslist {
+	padding: 5px;
+	background: #fff;
+}
+aside .aside_newslist .title {
+	width: auto;
+	height: 30px;
+	line-height: 30px;
+	font-size: 16px;
+	font-weight: bold;
+	background: #f4f4f4;
+}
+aside .aside_newslist .title:before {
+	content: "NEW";
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	padding: 0 5px;
+	margin: 5px;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	display: inline-block;
+}
+aside .aside_newslist .title-hot:before {
+	content: "HOT";
+}
+aside .aside_newslist .title a {
+	float: right;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 6px;
+	margin-left: 3px;
+	color: #fff;
+	font-size: 12px;
+}
+aside .aside_newslist .title a.tag {
+	float: right;
+	padding: 0 15px;
+	margin: 5px 0 0 0;
+	background: #fff;
+	color: #444;
+	font-size: 15px;
+}
+aside .aside_newslist .title a.tag:first-child {
+	margin-left: 5px;
+}
+
+
+aside .aside_newslist ul, aside .news_content ul {
+	line-height: 22px;
+	padding: 10px;
+}
+aside .aside_newslist ul li, aside .news_content ul li {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px dotted #ccc;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	white-space: nowrap;
+}
+aside .aside_newslist ul li:before, aside .news_content ul li:before {
+	content: "●";
+	line-height: 10px;
+	padding: 0 5px 0 3px;
+	color: #ddd;
+	font-size: 0.5rem;
+}
+aside .aside_newslist ul li a, aside .news_content ul li a {
+	font-size: 15px;
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+/* 人氣+最新新聞 頁籤 */
+aside .news_new_tabs {
+	position: relative;
+	width: 298px;
+	height: 685px;
+	background: #e0e0e0;
+	border: 1px solid #ccc;
+	overflow: hidden;
+}
+aside .news_new_tabs .news_tabs ul {
+	margin: 0;
+	overflow: hidden;
+}
+aside .news_new_tabs .news_tabs ul li {
+	float: left;
+	width: 50%;
+	height: 40px;
+	line-height: 40px;
+	list-style-type: none;
+	display: inline-block;
+	text-align: center;
+}
+aside .news_new_tabs .news_tabs ul li.on {
+	background: #fff;
+}
+aside .news_new_tabs .news_tabs ul li a {
+	width: 100%;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	cursor: pointer;
+	display: block;
+}
+aside .news_new_tabs .news_tabs ul li a i {
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	padding: 0 5px;
+	margin: 10px 0 0;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: normal;
+	display: inline-block;
+}
+aside .news_new_tabs .news_content {
+	clear: both;
+	padding: 0 15px;
+	height: 645px;
+	background: #fff;
+	overflow: hidden;
+}
+
+/* EX2. 電影排行榜 */
+aside .aside_movielist {
+	width: 278px;
+	padding: 10px;
+	background: #fff8e7;
+	font-weight: bold;
+}
+aside .aside_movielist .title {
+	padding: 0 0 8px;
+	font-size: 16px;
+	text-align: center;
+	letter-spacing: 1px;
+}
+aside .aside_movielist .title>span {
+	width: 75px;
+	height: 1px;
+	margin: 12px 0 0;
+	display: inline-block;
+}
+aside .aside_movielist .title>span.l {
+	float: left;
+}
+aside .aside_movielist .title>span.r {
+	float: right;
+}
+aside .aside_movielist ul {
+}
+aside .aside_movielist ul li {
+	height: 28px;
+	line-height: 28px;
+}
+aside .aside_movielist ul li a {
+	float: left;
+	width: 170px;
+	font-size: 14px;
+	display: inline-block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+aside .aside_movielist ul li a.news, aside .aside_movielist ul li a.more {
+	float: right;
+	width: 33px;
+	height: 18px;
+	line-height: 18px;
+	margin: 2px 0 2px 6px;
+	border: 1px solid #e0e0e0;
+	background: #fff;
+	font-size: 12px;
+	text-align: center;
+}
+aside .aside_movielist ul li a.news:hover, aside .aside_movielist ul li a.more:hover {
+	width: 35px;
+	height: 20px;
+	line-height: 20px;
+	border: 0;
+	color: #fff;
+}
+aside .aside_movielist ul li em {
+	float: left;
+	width: 14px;
+	height: 14px;
+	line-height: 14px;
+	margin: 6px 6px 6px 0;
+	background: #fff;
+	font-size: 12px;
+	display: inline-block;
+	text-align: center;
+}
+aside .aside_movielist ul li b {
+	float: left;
+	width: 262px;
+	display: inline-block;
+}
+aside .aside_movielist ul li span {
+	float: right;
+}
+
+
+/* Clearfix */
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	*zoom: 1;
+	/*For IE 6&7 only*/
+}
+
+/* 20210120 左欄-新聞專題 star*/
+.seminar-box-side{width:100%;height:250px;border-color:transparent;position:relative;overflow:hidden;}
+.seminar-box-side,.seminar-box-side a, .seminar-box-side a:hover,.seminar-box-side u{font-size:13px;color:#fff;}
+.seminar-box-side a, .seminar-box-side a:hover{text-decoration:none;}
+.seminar-box-side .hashtag{margin:10px 0 0;font-style:normal;position:absolute;background:rgba(43, 163, 233, .85);display:inline-block;z-index:1;font-weight:400;width:36px;height:20px;line-height:21px;text-align:center;box-shadow:0px 0px 6px rgba(0, 0, 0, 0.3);}
+.seminar-box-side .media a{display:block;overflow:hidden; position: relative; max-width: 300px; max-height:250px; width:100%; height: 250px; overflow: hidden; margin: auto; }
+.seminar-box-side .media-image { position: absolute; z-index: auto; max-width: 100%; max-height: 100%; top: 0; left: 0; width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover;}
+.seminar-box-side .seminar-content{bottom:0;left:0;position:absolute;width:100%;padding:6px 0;background:hsla(0, 0%, 0%, .7);}
+.seminar-box-side .seminar-content .seminar-status{background:#2ba3e9;bottom:0;left:0;height:80px;/*width:6px;*/position:absolute;}
+.seminar-box-side .seminar-content .seminar-headline{ font-size: 26px; font-weight: 700; line-height: 30px; padding: 0 14px;display:flex;justify-content:space-between;align-items:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;width:100%;font-size:24px;margin-bottom:2px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.seminar-box-side .seminar-content .seminar-headline span{width:calc(100% - 62px);overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;white-space:normal;}
+.seminar-box-side .seminar-content .seminar-headline u{width:62px;text-decoration:none;background-color:#2ba3e9;padding:0 8px;border-radius:26px;height:24px;line-height:24px;font-weight:500;text-align:center;transition:all .2s ease-in-out;}
+.seminar-box-side .seminar-content:hover .seminar-headline u{background:#ff784e;}
+.seminar-box-side .seminar-content .seminar-headline-text{text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;white-space:normal;height:36px;font-size:13px;line-height:18px;overflow:hidden;padding:0 10px 0 14px; font-weight:300;}
+/* 20210120 左欄-新聞專題 end*/
