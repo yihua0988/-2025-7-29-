@@ -1,0 +1,190 @@
+//評分星星的狀態
+var start=[0,0,0,0,0];
+
+//console 訊息 true 印出 false 關閉
+var debug=debug_mode;
+
+//旗標發出一次就不再發出
+var timeflag=false;
+var scrollflag=false;
+var clickflag=false;
+var oneflag=false;
+var fiveflag=false;
+
+var pacl_url="";
+if(pacl_url_os=="stg"){
+    pacl_url="http://showstg.pchome.com.tw/adm/html/js/ptag/pdtag.js"
+}
+
+if(pacl_url_os=="prd"){
+    pacl_url="https://pacl.pchome.com.tw/js/pdtag.js"
+}
+
+
+
+
+
+! function (p, c, h, o, m, e, s) {
+    if (p.ptag) return;m = p.ptag = function () {
+    m.callMethod ? m.callMethod.apply(m, arguments) : m.queue.push(arguments);
+    };if (!p._ptag) p._ptag = m;m.push = m;m.loaded = !0;m.version = '2.0';m.queue = [];e = c.createElement(h);
+    e.async = !0;e.src = o;s = c.getElementsByTagName(h)[0];s.parentNode.insertBefore(e, s)
+    }(window, document, 'script',pacl_url);
+    ptag({'paid':'1541043218770'});
+    ptag("event","record",{"tracking_id":"TACNEWS0000000000001"});
+
+function ptag_class(class_id,news_id) {
+    var callback = function () {}
+    if(class_id || 0 != class_id.length){
+        if(send_mode){
+            ptag_click("event","mark",{"mark_id":"news_score","mark_value":class_id,"mark_layer":"1","op1":news_id,"event_callback": callback});
+        }
+    }
+    return false;
+}
+
+function ptag_star(news_id,star) {
+    var callback = function () {}
+    if(news_id || 0 != news_id.length){
+        if(send_mode){
+            ptag_click("event","mark",{"mark_id":"news_score","mark_value":news_id,"mark_layer":"2","op1":star,"event_callback": callback});
+        }
+    }
+    return false;
+}
+
+
+
+
+
+
+function debugMessage(msg) {
+    if (debug) {
+        console.log(msg);
+        console.log(start);
+    }
+}
+
+function checkstar(action) {
+
+
+
+    //2~4星的記錄旗標
+    actionflag = false;
+
+    if (action == 'onestar' && oneflag == false) {
+        oneflag = true;
+        start[0] = 1;
+        ptag_class(class_id,news_id);
+        ptag_star(news_id, "1");
+        debugMessage("---------------------one");
+    }
+
+    if (action == 'fivestar' && fiveflag == false) {
+        //5星其它就不用在記了
+        fiveflag = true;
+        clickflag = true;
+        scrollflag = true;
+        timeflag = true;
+        start[4] = 1;
+        ptag_star(news_id, "5");
+        debugMessage("---------------------five");
+    }
+
+    //以下為2~4星的動作 click 點擊 scroll 捲動 time 停留時間
+    if (action == 'click' && clickflag == false) {
+        clickflag = true;
+        actionflag = true;
+        debugMessage("action click");
+    }
+
+    if (action == 'scroll' && scrollflag == false) {
+        scrollflag = true;
+        actionflag = true;
+        debugMessage("action scroll");
+    }
+
+    if (action == 'time' && timeflag == false) {
+        timeflag = true;
+        actionflag = true;
+        debugMessage("action time");
+    }
+
+    if (actionflag) {
+
+        if (start[1] == 0) {
+            start[1] = 1;
+            ptag_star(news_id, "2");
+            debugMessage("---------------------two");
+        } else if (start[2] == 0) {
+            start[2] = 1;
+            ptag_star(news_id, "3");
+            debugMessage("---------------------three");
+        } else if (start[3] == 0) {
+            start[3] = 1;
+            ptag_star(news_id, "4");
+            debugMessage("---------------------four");
+        }
+
+    }
+
+}
+
+//停留時間10秒
+var timeoutID = window.setTimeout(function() {
+
+    //停留時間足夠發出二到四顆星
+    checkstar('time');
+}, 10000);
+
+function checkstarScroll() {
+    //一捲動發出二到四顆星
+    checkstar('scroll');
+    if($(".ent_kw").length>0) {
+        var a = $(".ent_kw").offset().top;
+
+        if (a >= $(window).scrollTop()
+                && a < ($(window).scrollTop() + $(window)
+                        .height())) {
+            //電腦版捲到底部關鍵字露出五顆星
+            checkstar('fivestar');
+        }
+    }
+    else if($("#foot-area").length>0) {
+        var a = $("#foot-area").offset().top;
+
+        if (a >= $(window).scrollTop()
+                && a < ($(window).scrollTop() + $(window)
+                        .height())) {
+            //電腦版捲到底部foot露出五顆星
+            checkstar('fivestar');
+        }
+    }
+
+    else if($(".newsextend").length>0){
+        var a = $(".newsextend").offset().top;
+        if (a >= $(window).scrollTop()
+                && a < ($(window).scrollTop() + $(window)
+                .height())) {
+            //行動版捲到底部分享露出五顆星
+            checkstar('fivestar');
+        }
+
+    }
+}
+
+$(window).load(
+        function() {
+
+            //check_cookie();
+
+            //一進入頁面一顆星
+            checkstar('onestar');
+
+            //點擊事件
+            $(window).click(function() {
+
+                //點擊發出二到四顆星
+                checkstar('click');
+            });
+        });
