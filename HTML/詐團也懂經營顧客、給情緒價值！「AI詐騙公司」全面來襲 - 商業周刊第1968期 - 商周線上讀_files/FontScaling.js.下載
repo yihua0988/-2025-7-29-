@@ -1,0 +1,38 @@
+﻿//字形放大縮小
+$(document).ready(function () {
+
+    $(".article_function a").click(function () {
+        if (document.getElementById("HtmlFontNowSize") != null && document.getElementById("page-top") != null) {
+
+            var CommonfontSize = parseFloat(document.getElementById("HtmlFontNowSize").value);
+
+            if (CommonfontSize == 0) {
+                CommonfontSize = parseFloat(GetFontSize("page-top", "font-size"));
+                document.getElementById("HtmlFontNowSize").value = CommonfontSize;
+                document.getElementById("HtmlFontOriginalSize").value = CommonfontSize;
+            }
+
+            var name = $(this).attr("id");
+
+            if (name == "MStr" || name == "AStr") {
+                if (name == "MStr") {
+                    CommonfontSize -= 2;
+                } else if (name == "AStr") {
+                    CommonfontSize += 2;
+                }
+
+                $("#page-top").css("font-size", CommonfontSize);
+                document.getElementById("HtmlFontNowSize").value = CommonfontSize;
+            }
+
+            if (name == "OStr") {
+
+                var HtmlFontOriginalSize = parseFloat(document.getElementById("HtmlFontOriginalSize").value);
+                $("#page-top").css("font-size", HtmlFontOriginalSize);
+                document.getElementById("HtmlFontNowSize").value = HtmlFontOriginalSize;
+            }
+        }
+
+    });
+
+});

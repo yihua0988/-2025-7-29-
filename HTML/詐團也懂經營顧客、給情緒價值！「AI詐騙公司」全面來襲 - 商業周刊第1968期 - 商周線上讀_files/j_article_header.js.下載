@@ -1,0 +1,18 @@
+﻿function CloseLoginMsg() {
+    var logStatus = getCookie("ArticleLogStatusCookie");
+    if (logStatus == null) {
+        SetCookie("ArticleLogStatusCookie", "y");
+    }
+
+    if (document.getElementById("ArticleHeaderLoginMsg") != null) {
+        document.getElementById("ArticleHeaderLoginMsg").style.display = "none";
+    }
+}
+$(document).ready(function () {
+    $(function () {
+        var logStatus = getCookie("ArticleLogStatusCookie");
+        if (logStatus == "y" && document.getElementById("ArticleHeaderLoginMsg") != null) {
+            document.getElementById("ArticleHeaderLoginMsg").style.display = "none";
+        }
+    });
+});

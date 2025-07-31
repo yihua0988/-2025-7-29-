@@ -1,0 +1,216 @@
+/** js函數-添加iframe彈窗，控制iframe彈窗彈出，監聽iframe子頁面傳回來的數據並關閉彈窗，並重新刷新頁面
+
+彈窗-如果有彈窗不繼續添加，沒有彈窗才添加
+@shareType [0]表示點擊訂閱按鈕，[1]表示點擊購買金鑽按鈕
+@goldDiamondCount [Number] 兌換文章所需金鑽數，shareType為1時，大於0，shareType為0時，所需金鑽為0
+*/
+console.log('paywallControl v 1.4.3 20231219');
+
+/**
+ * 
+ * @param {Number} shareType 
+ * @param {Number} goldDiamondCount 
+ * @returns 
+ */
+
+let paywallController;
+if (window.location.href.includes('/Archive3/')) { //測試站
+  console.log('線上讀測試站');
+  //---------------測試站---------------------
+  paywallController = function (shareType, goldDiamondCount, pType) { 
+    
+    //目前文章頁的url
+    const articleUrl = window.location.href; 
+    console.log('articleUrl:',articleUrl);
+
+    //處理參數
+    const params = new URLSearchParams(new URL(articleUrl).search);
+
+    //取出strId值
+    let strId = '';
+    if (params.get('StrId') !== null) {
+      strId = params.get('StrId');
+    }
+    //console.log('strId:',strId);
+
+    //取UTM參數值
+    let utm_source = '';
+    let utm_medium = '';
+    let utm_campaign = '';
+    let utm_term = '';
+    let utm_content = '';
+    let ftag = '';
+    if(params.get('utm_source') !== null){
+      utm_source = `&utm_source=${params.get('utm_source')}`;
+    }else{
+      utm_source = '&utm_source=onlineRead';
+    }
+    if(params.get('utm_medium') !== null){
+      utm_medium = `&utm_medium=${params.get('utm_medium')}`;
+    }else{
+      utm_medium = '';
+    }
+    if(params.get('utm_campaign') !== null){
+      utm_campaign = `&utm_campaign=${params.get('utm_campaign')}`;
+    }else{
+      utm_campaign = '';
+    }
+    if(params.get('utm_term') !== null){
+      utm_term = `&utm_term=${params.get('utm_term')}`;
+    }else{
+      utm_term = '';
+    }
+    if(params.get('utm_content') !== null){
+      utm_content = `&utm_content=${params.get('utm_content')}`;
+    }else{
+      utm_content = '';
+    }
+    if(params.get('Ftag') !== null){
+      ftag = `&Ftag=${params.get('Ftag')}`;
+    }else{
+      ftag = `&Ftag=onlineRead`;
+    }
+
+    //取目前文章並encode
+    const encodeArticleUrl = encodeURIComponent(articleUrl);
+    console.log('encodeArticleUrl:',encodeArticleUrl);
+
+    // 文章類別為4 (線上讀)
+    const contentType = '4'; 
+    //文章ID
+    const articleId = ((document.getElementById("gtm_note_id") || {}).value) || ""; 
+
+    //--------處理google organic來源 60元方案---------
+    // 判斷是否為 Google 有機流量
+    let isGoogleOrganic = false;
+    function checkGoogleOrganic() {
+      const referrer = document.referrer.toLowerCase();
+      if (referrer.includes("google.com") || referrer.includes("www.google")) {
+        isGoogleOrganic = true;
+      }
+    }
+    checkGoogleOrganic();
+    //判斷網址有沒有rf=google
+    let hasParamRf = false; 
+    let rf = "";
+    if(params.get('rf') !== null){
+      hasParamRf = true;
+    }
+    if(isGoogleOrganic && hasParamRf==false){
+      rf = `&rf=google`;
+    }
+    
+    //------組合出參數字串-----------
+    const qryString = `?ptype=${pType}&shareType=${shareType}&goldDiamondCount=${goldDiamondCount}&strId=${strId}&contentType=${contentType}${rf}&articleId=${articleId}&articleUrl=${encodeArticleUrl}${utm_source}${utm_medium}${utm_campaign}${utm_term}${utm_content}${ftag}`;
+
+    let targetUrl = `https://frontdev.businessweekly.com.tw/test/plan-list/${qryString}`;
+    targetUrl = encodeURI(targetUrl);
+
+    setTimeout(() => { //因UTK追蹤內有使用setTimeout
+      window.location.href = targetUrl;  //導到方案列表頁
+      }, 400);
+
+  }
+
+}else{//正式站
+
+  //console.log('線上讀正式站');
+  //---------------正式站---------------------
+  paywallController = function (shareType, goldDiamondCount, pType) { 
+    
+    //目前文章頁的url
+    const articleUrl = window.location.href; 
+    //console.log('articleUrl:',articleUrl);
+
+    //處理參數
+    const params = new URLSearchParams(new URL(articleUrl).search);
+
+    //取出strId值
+    let strId = '';
+    if (params.get('StrId') !== null) {
+      strId = params.get('StrId');
+    }
+    //console.log('strId:',strId);
+
+    //取UTM參數值
+    let utm_source = '';
+    let utm_medium = '';
+    let utm_campaign = '';
+    let utm_term = '';
+    let utm_content = '';
+    let ftag = '';
+    if(params.get('utm_source') !== null){
+      utm_source = `&utm_source=${params.get('utm_source')}`;
+    }else{
+      utm_source = '&utm_source=onlineRead';
+    }
+    if(params.get('utm_medium') !== null){
+      utm_medium = `&utm_medium=${params.get('utm_medium')}`;
+    }else{
+      utm_medium = '';
+    }
+    if(params.get('utm_campaign') !== null){
+      utm_campaign = `&utm_campaign=${params.get('utm_campaign')}`;
+    }else{
+      utm_campaign = '';
+    }
+    if(params.get('utm_term') !== null){
+      utm_term = `&utm_term=${params.get('utm_term')}`;
+    }else{
+      utm_term = '';
+    }
+    if(params.get('utm_content') !== null){
+      utm_content = `&utm_content=${params.get('utm_content')}`;
+    }else{
+      utm_content = '';
+    }
+    if(params.get('Ftag') !== null){
+      ftag = `&Ftag=${params.get('Ftag')}`;
+    }else{
+      ftag = `&Ftag=onlineRead`;
+    }
+
+    //取目前文章並encode
+    const encodeArticleUrl = encodeURIComponent(articleUrl);
+    //console.log('encodeArticleUrl:',encodeArticleUrl);
+
+    // 文章類別為4 (線上讀)
+    const contentType = '4'; 
+    //文章ID
+    const articleId = ((document.getElementById("gtm_note_id") || {}).value) || ""; 
+
+    //--------處理google organic來源 60元方案---------
+    // 判斷是否為 Google 有機流量
+    let isGoogleOrganic = false;
+    function checkGoogleOrganic() {
+      const referrer = document.referrer.toLowerCase();
+      if (referrer.includes("google.com") || referrer.includes("www.google")) {
+        isGoogleOrganic = true;
+      }
+    }
+    checkGoogleOrganic();
+    //判斷網址有沒有rf=google
+    let hasParamRf = false; 
+    let rf = "";
+    if(params.get('rf') !== null){
+      hasParamRf = true;
+    }
+    if(isGoogleOrganic && hasParamRf==false){
+      rf = `&rf=google`;
+    }
+    
+    //------組合出參數字串-----------
+    const qryString = `?ptype=${pType}&shareType=${shareType}&goldDiamondCount=${goldDiamondCount}&strId=${strId}&contentType=${contentType}${rf}&articleId=${articleId}&articleUrl=${encodeArticleUrl}${utm_source}${utm_medium}${utm_campaign}${utm_term}${utm_content}${ftag}`;
+
+    let targetUrl = `https://www.businessweekly.com.tw/bookshop/digi-subscription/onlineRead/${qryString}`;
+    targetUrl = encodeURI(targetUrl);
+
+    setTimeout(() => { //因UTK追蹤內有使用setTimeout
+      window.location.href = targetUrl;  //導到方案列表頁
+      }, 400);
+
+  }
+
+}
+
+

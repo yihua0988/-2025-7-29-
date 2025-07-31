@@ -1,0 +1,253 @@
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+article, aside, figure, footer, header, nav, section, details, summary {
+	display: block;
+}
+/* Responsive images and other embedded objects   Note: keeping IMG here will cause problems if you're using foreground images as sprites.   If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
+ul, ol {
+	list-style-type: none;
+	list-style-image: none;
+}
+a {
+	text-decoration: none;
+	outline: none;
+	vertical-align: baseline;
+	background: transparent;
+}
+del {
+	text-decoration: line-through;
+}
+abbr[title], dfn[title] {
+	border-bottom: 1px dotted #000;
+	cursor: help;
+}
+/* tables still need cellspacing="0" in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+th {
+	font-weight: bold;
+}
+td {
+	font-weight: normal;
+}
+input, select, textarea {
+	font-family: Verdana, LiHei Pro, PMingLiu, sans-serif;
+	padding: 3px 5px;
+	vertical-align: middle;
+}
+input[type="radio"] {
+	margin: 0 2px;
+	position: relative;
+	vertical-align: middle;
+}
+input[type="checkbox"] {
+	margin: 0 2px;
+	position: relative;
+	top: -1px;
+	vertical-align: middle;
+}
+td, td img {
+	vertical-align: top;
+}
+/* hand cursor on clickable elements */
+.clickable, input[type=button], input[type=submit], input[type=file], button {
+	cursor: pointer;
+}
+/* make buttons play nice in IE */
+button {
+	width: auto;
+	overflow: visible;
+}
+.clear {
+	clear: both;
+}
+.clearfix:after {
+	content: ".";
+	clear: both;
+	display: block;
+	font-size: 0;
+	height: 0;
+	visibility: hidden;
+}
+/* reset end */
+
+/* display */
+.Floating-Setting, .Floating-Setting.active, .postnav, .loaderSection, .footer-wrap, .toolbar.view-model, #menubtn, .article-header.singlepost .container .navbar-headleft, .article-header.singlepost .container .navbar-headright, .postnav.fixed, .postnav  {display: none}
+.collapse {display: block}
+
+/* design */
+html, body {
+	height: 100%;
+    position: relative;
+}
+body {
+    font-family: Trebuchet MS, PMingLiu, Arial, Microsoft JhengHei, sans-serif;
+    background-color: #FFF;
+    color: #262626;
+	margin: 2em auto
+}
+h1, .h1 {font-size: 1.75em;}
+h2, .h2 {font-size: 1.35em;}
+h3, .h3 {font-size: 1.05em;}
+h4, .h4 {font-size: 1em;}
+#wrapper.post, .header {
+	position: relative;
+}
+.post .maincontent.container {padding: 0}
+.article-header.singlepost {margin-top: -3em}
+.post .article {margin: 0 auto}
+.post .article {
+	color: #000;
+	margin: 0 auto 2%;
+    padding: 50px 0;
+	width: 100%
+}
+.post .article-title {
+    text-align: center;
+}
+.post .postbody h3 {
+	text-align: left
+}
+.post .postbody p {
+	line-height: 1.8em;
+	margin: 1.8em auto;
+	text-align: justify;
+	text-justify: distribute;
+}
+.articleinfo {
+	color: #888;
+	padding: 10px 0;
+}
+.articleinfo strong {
+	font-weight: 100
+}
+.articlephoto {
+	margin: 24px auto;
+}
+.postbody .firstPart:first-letter {
+	font-size: 3em;
+	font-weight: bold;
+	float: left;
+	margin: 5px 5px 0px 0;
+}
+.post article .articleinfo p {
+	color: #000;
+	margin: 0 auto 10px auto;
+	text-align: center;
+}
+.post .articlephoto p {
+	margin: 5px auto 0;
+	padding-bottom: 5px;
+	text-align: center;
+}
+.socialshare .facebook {
+	margin-top: 4px;
+}
+.post article .socialshare, .bottomtoolbar .socialshare div.fblike, .posts.clearfix .socialshare {
+	float: right;
+}
+.bottomtoolbar .socialshare {
+	border-bottom: #CCC 1px solid;
+	padding: 8px 0 5px 0;
+	float: none;
+	margin: 30px auto 15px;
+}
+.post .postbody  summary p, .post .postbody blockquote p {
+	margin: 15px auto;
+	text-align: center
+}
+.post article blockquote {
+	background: #EEE;
+	margin: 25px auto;
+	padding: 1px 10px 25px;
+	text-align: center;
+	width: 80%;
+	position: relative;
+	font-size: 1em
+}
+.post .postbody blockquote p {
+	font-size: 1.5em;
+	font-weight: 600;
+	line-height: 1.5em;
+}
+.post article q {
+	color: #000;
+	font-weight: 600
+}
+.quotemark {
+	margin-top: -10px;
+	text-align: center;
+}
+.postbody .articlephoto {width: inherit;width: inherit;width: inherit;max-width: inherit;}
+.postbody .articlephoto, .postbody .articlephoto img {width: auto;}
+.articlcontent .photocaption p {
+	clear: both;
+	font-size: 12px;
+	line-height: 18px;
+	margin: 0;
+	padding: 10px 10px 0;
+}
+table.archiveFormat {
+	margin: 30px auto;
+	width: 100%
+}
+table.archiveFormat th {
+	border-top: #CCC 1px solid;
+}
+table.archiveFormat th, table.archiveFormat td {
+	padding: 5px;
+	border-bottom: #CCC 1px solid
+}
+table.archiveFormat .bgcolorGray {
+	background-color: #DDD
+}
+table.archiveFormat .bgcolorblock {
+	background-color: #000;
+	color: #FFF
+}
+.articleend {
+	background: url("https://ibw.bwnet.com.tw/bw/images/articleend.gif") 0 0 no-repeat;
+	display: inline-block;
+	text-indent: -9999em;
+	width: 12px;
+	height: 12px;
+	position: relative;
+	top: 6px;
+}
+.sidemember {
+	border: #DDD 1px solid;
+	border-top: #CCC 2px solid;
+	margin: 30px auto;
+	padding: 20px;
+	position: relative
+}
+.thunbList li {
+	padding: 10px 1px 0px;
+	width: 80px
+}
+.thunbList li:hover img {
+	border: #CCC solid 1px
+}
+.BwMemberId {
+    background-color: #DDD;
+	border: #DDD 1px solid;
+	color: #555;
+    display: block;
+    /*position: absolute;*/
+    text-align: center;
+    padding: 8px 0;
+    width: 100%;
+    bottom: 0px;
+}
+.BwMemberId.head {
+    top: 0px;
+}
+.BwMemberId.footer {
+    bottom: 0px;
+}
+.articlbox-body {height: auto!important}

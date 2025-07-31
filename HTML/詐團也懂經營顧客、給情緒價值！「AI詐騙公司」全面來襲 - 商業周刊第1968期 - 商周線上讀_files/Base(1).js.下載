@@ -1,0 +1,777 @@
+﻿
+async function setCookie(e, o, n) {
+    let i = new Date;
+    i.setTime(i.getTime() + 24 * n * 60 * 60 * 1e3);
+    let a = "expires=" + i.toUTCString();
+    document.cookie = e + "=" + o + ";" + a + ";domain=.businessweekly.com.tw;path=/"
+}
+function getCookie(e) {
+    if (document.cookie.length > 0) {
+        let o = document.cookie.indexOf(e + "=");
+        if (-1 != o) {
+            o = o + e.length + 1;
+            let n = document.cookie.indexOf(";", o);
+            return -1 == n && (n = document.cookie.length), unescape(document.cookie.substring(o, n))
+        }
+    }
+    return ""
+}
+function delCookie(e) {
+    setCookie(e, "", -1)
+}
+function WGRI() {
+    //await Changelink();
+    return new Promise(function (e, o) {
+        if (!window.TokenBase.isSpider &&
+            window.TokenBase.Token &&
+            window.TokenBase.Sum) {
+            var p = null;
+            p = WGTO();
+            fetch(window.TokenBase.apis.Domain + window.TokenBase.apis.WGRI, {
+                method: 'POST',
+                body: JSON.stringify({
+                    Token: window.TokenBase.Token,
+                    PlusToken: p,
+                    Url: window.location.href,
+                    JData: {
+                        Member_Id: window.TokenBase.Sum
+                    }
+                }),
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+                }
+            }).then(function (res) {
+                return res.json();
+            }).then(function (result) {
+                window.TokenBase.setCookie('BWG_CC', result.token, 15).
+                    then(() => {
+                        if (result.errorCode == 0) {
+                            window.TokenBase.Token = result.token;
+                            window.TokenBase.WGR = result.jData;
+                            window.TokenBase.groupid = result.jData2;
+
+                        }
+                        e(result);
+                    });
+            });
+        }
+        else {
+            o();
+        }
+    })
+}
+function getQueryVariable(variable) {
+    var p = '';
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        if (pair[0] == variable) { p = pair[1]; }
+    }
+    return (p);
+}
+function getQueryforEachVariable() {
+    var p = {};
+
+    if (decodeURIComponent(window.location.search) != '') {
+        const paramList = decodeURIComponent(window.location.search)
+            .replace("?referrer=", "")
+            .split("?")[1].split('&')
+
+
+        for (var i = 0; i < paramList.length; i++) {
+            var pair = paramList[i].split("=");
+            p[pair[0].trim().toLowerCase()] = pair[1].trim()
+
+        }
+    }
+    return p;
+}
+function addOrUpdateUrlParam(href, name, value) {
+
+    var regex = new RegExp("[&\\?]" + name + "=");
+    if (regex.test(href)) {
+        var re = new RegExp("([?&])" + name + "=.*?(&|$)", "i");
+        var separator = href.indexOf('?') !== -1 ? "&" : "?";
+        if (href.match(re)) {
+            return href.replace(re, '$1' + name + "=" + value + '$2');
+        }
+        else {
+            return href + separator + name + "=" + value;
+        }
+
+        //regex = new RegExp("([&\\?])" + name + "=\\d+");
+        //return href.replace(regex, "$1" + name + "=" + value);
+    }
+    else {
+        if (href.indexOf("?") > -1)
+            return href + "&" + name + "=" + value;
+        else
+            return href + "?" + name + "=" + value;
+    }
+}
+function WGTO() {
+    //await Changelink();
+    if (!window.TokenBase.isSpider && getQueryVariable("ptoken").length > 0 && "undefined" != getQueryVariable("ptoken") && "" != getQueryVariable("ptoken")) {
+        return getQueryVariable("ptoken");
+    }
+    else if (!window.TokenBase.isSpider && getCookie("token").length > 0 && "undefined" != getCookie("token") && "" != getCookie("token")) {
+        window.TokenBase.getAppAgent();
+        if (window.TokenBase.IBPP) {
+            return getCookie("token");
+        }
+    } else {
+        window.TokenBase.getAppAgent();
+        if (window.TokenBase.IBPP) {
+            return getCookie("token");
+        }
+    }
+}
+function Changelink() {
+    return new Promise(function (e, o) {
+
+        if (!window.TokenBase.aSites) {
+
+        }
+
+        fetch("https://apis.businessweekly.com.tw/membertest/v1/Tools/API", {
+            method: "get"
+        }).then(function (e) {
+            return e.json()
+        }).then(function (o) {
+            window.TokenBase.apis = o.jData;
+        });
+
+    })
+}
+window.siteSetup = {
+    BW: {
+        ID: 2,
+        Name: "商周頻道",
+        Logo_Src: "https://member.businessweekly.com.tw/Content/images/header/bwcom-logo-2018.png",
+        Slogan: "台灣最具影響力的商業財經媒體",
+        Website: "https://www.businessweekly.com.tw/",
+        Customer_Url: "https://www.businessweekly.com.tw/Service",
+        Epaper_Id: "24",
+        Epaper_Name: "商周Smart財富報",
+        Phone: "02-2510-8888",
+        Fax: "02-2503-5868",
+        Time: "週一~週五8:30~18:00(例假日除外)"
+    },
+    SM: {
+        ID: 4,
+        Name: "Smart頻道",
+        Logo_Src: "https://member.businessweekly.com.tw/Content/images/header/smart-logo-2018.png",
+        Slogan: "有了財富，就有無限的自由",
+        Website: "http://smart.businessweekly.com.tw/",
+        Customer_Url: "https://smart.businessweekly.com.tw/Member/customerservices.aspx",
+        Epaper_Id: "11",
+        Epaper_Name: "每日電子報",
+        Phone: "02-2510-8888",
+        Fax: "02-2503-6989",
+        Time: "週一~週五8:30~18:00(例假日除外)"
+    },
+    BWC: {
+        ID: 8,
+        Name: "商顧頻道",
+        Logo_Src: "https://ibw.bwnet.com.tw/file/img/bwe-white.png",
+        Slogan: "台灣最具影響力的商業財經媒體",
+        Website: "https://www.businessweekly.com.tw/bwc/",
+        Customer_Url: "",
+        Epaper_Id: "",
+        Epaper_Name: "",
+        Phone: "02-2510-8888",
+        Fax: "",
+        Time: "週一~週五8:30~18:00(例假日除外)"
+    },
+    BWA: {
+        ID: 10,
+        Name: "商周線上讀",
+        Logo_Src: "https://member.businessweekly.com.tw/Content/images/header/bwcom-logo-2018.png",
+        Slogan: "台灣最具影響力的商業財經媒體",
+        Website: "https://www.businessweekly.com.tw/Archive/",
+        Customer_Url: "https://www.businessweekly.com.tw/Service",
+        Epaper_Id: "24",
+        Epaper_Name: "商周Smart財富報",
+        Phone: "02-2510-8888",
+        Fax: "02-2503-5868",
+        Time: "週一~週五8:30~18:00(例假日除外)"
+    },
+    AL: {
+        ID: 13,
+        Name: "alive頻道",
+        Logo_Src: "https://ibw.bwnet.com.tw/file/img/alive-white.png",
+        Slogan: "有了財富，就有無限的自由",
+        Website: "https://alive.businessweekly.com.tw/",
+        Customer_Url: "",
+        Epaper_Id: "",
+        Epaper_Name: "",
+        Phone: "02-2510-8888",
+        Fax: "",
+        Time: "週一~週五8:30~18:00(例假日除外)"
+    },
+    HH: {
+        ID: 14,
+        Name: "良醫健康網頻道",
+        Logo_Src: "https://ibw.bwnet.com.tw/file/img/health-white.png",
+        Slogan: "有了財富，就有無限的自由",
+        Website: "https://health.businessweekly.com.tw/",
+        Customer_Url: "",
+        Epaper_Id: "",
+        Epaper_Name: "",
+        Phone: "02-2510-8888",
+        Fax: "",
+        Time: "週一~週五8:30~18:00(例假日除外)"
+    }
+},
+    window.TokenBase = {
+        showType: 1,
+        bodyType: 1,
+        isVerifyInfo: !1,
+        isShowHeader: !0,
+        isShowFooter: !0,
+        Slogan: "",
+        isShowSlogan: !1,
+        Logo_Src: "",
+        isShowLogo: !1,
+        isSpider: !1,
+        w_width: window.screen.width,
+        url_origin: "",
+        url_storage: "",
+        email_value: "",
+        remember: !0,
+        privacy: !0,
+        birhdayPlaceholder: !0,
+        sex: "",
+        dis_birthday: !1,
+        sexDisabled: !0,
+        uuid: getCookie("device_id"),
+        userAgentInfo: navigator.userAgent,
+        explorer: window.navigator.userAgent.toLowerCase(),
+        IP: "",
+        Sum: "",
+        OSum: "",
+        NE: "",
+        MH: "",
+        PU: "",
+        LC: "",
+        SK: "",
+        SD: "",
+        status: "",
+        BMRGH: [],
+        BMRGHR: [],
+        WGR: [],
+        groupid: [],
+        r: document.referrer.toLowerCase(),
+        Agents: new Array("Android", "SymbianOS", "Windows Phone"),
+        IAgents: new Array("iPhone", "iPad", "iPod"),
+        aSites: new Array("google.", "baidu.", "soso.", "so.", "360.", "yahoo.", "youdao.", "sogou.", "gougou."),
+        bSites: new Array("Name/BW track_app_version."),
+        apis: {
+            Domain: "https://apis.businessweekly.com.tw",
+            Device_single: "https://club.businessweekly.com.tw/api/user/bwSetDeviceId",
+            UUID: "/member/v1/User/GetUUID",
+            CKT: "/member/v1/User/CheckToken",
+            BIO: "/member/v1/User/BaseInfo",
+            WGRI: "/member/v1/GroupMember/GetWegrowMemberRule",
+            SVM: "/member/v1/User/SendVer_Mobile"
+        },
+        Device_single: "/member/v1/user/LoginDevice",
+        Token: getCookie("BWG_CC"),
+        PToken: getQueryVariable("ptoken"),
+        Device: {
+            DeviceID: "",
+            OS: 3,
+            Describe: "",
+            Version: "",
+            ServiceID: "2",
+            IP: ""
+        },
+        BPPTag: false,
+        IBPP: false,
+        /**
+         * 設罝cookie
+         * @param {any} e
+         * @param {any} o
+         * @param {any} n
+         */
+        setCookie: function (e, o, n) {
+            return new Promise((resolve, reject) => {
+                let i = new Date;
+                i.setTime(i.getTime() + 24 * n * 60 * 60 * 1e3);
+                let a = "expires=" + i.toUTCString();
+                document.cookie = e + "=" + o + ";" + a + ";domain=.businessweekly.com.tw;path=/";
+                resolve(true);
+            });
+        },
+        /**
+         * 取Cookie
+         * @param {any} e
+         * @returns
+         */
+        getCookie: function (e) {
+            return new Promise((resolve, reject) => {
+                var arr = document.cookie.match(new RegExp("(^| )" + e + "=([^;]*)(;|$)"));
+                if (arr != null) {
+                    resolve(unescape(arr[2]));
+                }
+                else {
+                    resolve("");
+                }
+            });
+        },
+        /**
+         * 刪除cookie
+         * @param {any} e
+         * @returns
+         */
+        delCookie: async function (e) {
+            return new Promise((resolve, reject) => {
+                window.TokenBase.setCookie(e, "", -1)
+                console.log('delCookie', e)
+                resolve(true);
+            });
+        },
+        getQueryVariable: function (variable) {
+            return new Promise((resolve, reject) => {
+                var p = '';
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    if (pair[0] == variable) { p = pair[1]; }
+                }
+                resolve(p);
+            });
+        },
+        getQueryforEachVariable: function () {
+            return new Promise((resolve, reject) => {
+                var p = {};
+                if (decodeURIComponent(window.location.search) != '') {
+                    const paramList = decodeURIComponent(window.location.search)
+                        .replace("?referrer=", "")
+                        .split("?")[1].split('&')
+                    for (var i = 0; i < paramList.length; i++) {
+                        var pair = paramList[i].split("=");
+                        p[pair[0].trim().toLowerCase()] = pair[1].trim();
+                    }
+                }
+                resolve(p);
+            });
+        },
+        addOrUpdateUrlParam: function (href, name, value) {
+            return new Promise((resolve, reject) => {
+                var regex = new RegExp("[&\\?]" + name + "=");
+                if (regex.test(href)) {
+                    var re = new RegExp("([?&])" + name + "=.*?(&|$)", "i");
+                    var separator = href.indexOf('?') !== -1 ? "&" : "?";
+                    if (href.match(re)) {
+                        resolve(href.replace(re, '$1' + name + "=" + value + '$2'));
+                    }
+                    else {
+                        resolve(href + separator + name + "=" + value);
+                    }
+                }
+                else {
+                    if (href.indexOf("?") > -1)
+                        resolve(href + "&" + name + "=" + value);
+                    else
+                        resolve(href + "?" + name + "=" + value);
+                }
+            });
+        },
+        /**
+         * 判斷是否為爬蟲
+         * @returns
+         */
+        checkisSpider: function () {
+            return new Promise((resolve, reject) => {
+                for (i in window.TokenBase.aSites) {
+                    if (window.TokenBase.r.indexOf(window.TokenBase.aSites[i]) > 0) {
+                        window.TokenBase.isSpider = false;
+                        break;
+                    }
+                }
+                resolve(true);
+            });
+        },
+        /**
+         * 判斷使用者裝置
+         */
+        getAgent: function () {
+            return new Promise((resolve, reject) => {
+                for (var v = 0; v < window.TokenBase.Agents.length; v++) {
+                    if (window.TokenBase.userAgentInfo.indexOf(window.TokenBase.Agents[v]) > 0) {
+                        window.TokenBase.Device.OS = 1;
+                    };
+                }
+                resolve(true);
+            });
+        },
+        /**
+         * 判斷使用者裝置
+         */
+        getAppAgent: function () {
+            window.TokenBase.IBPP = true;
+            //return new Promise((resolve, reject) => {
+            //    for (var v = 0; v < window.TokenBase.bSites.length; v++) {
+            //        if (window.TokenBase.userAgentInfo.indexOf("Name/BW track_app_version") !== -1) {
+            //            window.TokenBase.IBPP = true;
+            //        };
+            //    }
+            //    resolve(true);
+            //});
+        },
+        /**
+         * 取IP
+         */
+        getIP: function () {
+            return new Promise((resolve, reject) => {
+                fetch("https://member.businessweekly.com.tw/API/MemberActionAPI/IPAddress", {
+                    method: "post"
+                }).then(e => e.text()).then(e => {
+                    const o = /[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/;
+                    window.TokenBase.IP = e.match(o)[0];
+                    window.TokenBase.Device.IP = e.match(o)[0];
+                });
+                resolve(window.TokenBase.IP);
+            });
+        },
+        /**
+         * 裝置id
+         * @returns
+         */
+        getDeviceId: function () {
+            return new Promise((resolve, reject) => {
+                var d = window.TokenBase.getCookie("device_id");
+                if (!d) {
+                    fetch(apis.Device_single, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json; charset=utf-8"
+                        }
+                    }).then(function (e) {
+                        return e.json()
+                    }).then(function (o) {
+                        if (o.code === 200) {
+                            window.TokenBase.setCookie("device_id", o.result.deviceId, 36500);
+                            d = o.result.deviceId;
+                        }
+                    });
+                }
+                resolve(d);
+            });
+        },
+        /**
+         * 判斷使用者瀏覽器
+         */
+        getexplorer: function () {
+            return new Promise((resolve, reject) => {
+                var ua = window.TokenBase.explorer;
+                var s;
+                (s = ua.match(/edge\/([\d.]+)/)) ? sys.edge = s[1] :
+                    (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? sys.ie = s[1] :
+                        (s = ua.match(/msie ([\d.]+)/)) ? sys.ie = s[1] :
+                            (s = ua.match(/firefox\/([\d.]+)/)) ? sys.firefox = s[1] :
+                                (s = ua.match(/chrome\/([\d.]+)/)) ? sys.chrome = s[1] :
+                                    (s = ua.match(/opera.([\d.]+)/)) ? sys.opera = s[1] :
+                                        (s = ua.match(/version\/([\d.]+).*safari/)) ? sys.safari = s[1] : 0;
+                if (sys.edge) {
+                    window.TokenBase.Device.Describe = "Edge", window.TokenBase.Device.Version = sys.edge
+                };
+                if (sys.ie) {
+                    window.TokenBase.Device.Describe = "IE", window.TokenBase.Device.Version = sys.ie
+                };
+                if (sys.firefox) {
+                    window.TokenBase.Device.Describe = "Firefox", window.TokenBase.Device.Version = sys.firefox
+                };
+                if (sys.chrome) {
+                    window.TokenBase.Device.Describe = "Chrome", window.TokenBase.Device.Version = sys.chrome
+                };
+                if (sys.opera) {
+                    window.TokenBase.Device.Describe = "Opera", window.TokenBase.Device.Version = sys.opera
+                };
+                if (sys.safari) {
+                    window.TokenBase.Device.Describe = "Safari", window.TokenBase.Device.Version = sys.safari
+                };
+                resolve(window.TokenBase.Device.Describe);
+            });
+        },
+        Tracks: function (event, action, value, label, note) {
+            new TrackEvents().setEvents(event, action, label, value, note);
+            gtag('event', action, {
+                'event_category': event,
+                'event_label': label,
+                'non_interaction': true
+            });
+        },
+        VMMS: function () {
+            var p = null;
+            p = WGTO();
+            var t = "";
+            if (window.FME.token) {
+                t = window.FME.token;
+            }
+            return new Promise(function (e, o) {
+                fetch(window.TokenBase.apis.Domain + window.TokenBase.apis.BIO, {
+                    credentials: 'include',
+                    method: "POST",
+                    body: JSON.stringify({
+                        Token: t,
+                        PlusToken: p,
+                        Url: window.location.href
+                    }),
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8"
+                    }
+                })
+                    .then(function (res) {
+                        return res.json();
+                    })
+                    .then(function (result) {
+                        window.TokenBase.setCookie('BWG_CC', result.jData.token, 15)
+                            .then(function () {
+                                if (result.errorCode == 0) {
+                                    window.TokenBase.Token = result.jData.token;
+                                    if (result.jData.id == null) {
+                                        window.TokenBase.Sum = "";
+                                    }
+                                    else {
+                                        window.TokenBase.Sum = result.jData.id;
+                                    }
+                                    window.TokenBase.OSum = result.jData.ssO_ID;
+                                    window.TokenBase.NE = result.jData.name;
+                                    window.TokenBase.email_value = result.jData.email;
+                                    window.TokenBase.MH = result.jData.mobile;
+                                    window.TokenBase.PU = result.jData.photoUrl;
+                                    window.TokenBase.LC = result.jData.levelCode;
+                                    window.TokenBase.BMRGH = result.jData.bwg_Member_Role_Group_History;
+                                    window.TokenBase.SK = result.jData.sKey;
+                                    window.TokenBase.status = result.jData.status;
+                                    window.TokenBase.SD = result.jData.subscriberiID;
+                                    window.TokenBase.BMRGHR = result.jData.role;
+                                    BPP();
+                                }
+                                else {
+                                    window.TokenBase.Sum = "";
+                                    window.TokenBase.OSum = "";
+                                    window.TokenBase.NE = "";
+                                    window.TokenBase.MH = "";
+                                    window.TokenBase.PU = "";
+                                    window.TokenBase.LC = "";
+                                    window.TokenBase.SK = "";
+                                    window.TokenBase.SD = "";
+                                    window.TokenBase.status = "";
+                                    window.TokenBase.BMRGH = [];
+                                    window.TokenBase.BMRGHR = [];
+                                    window.TokenBase.WGR = [];
+                                    window.TokenBase.groupid = [];
+                                }
+                                e(result);
+                            })
+                    })
+
+
+
+
+                if (!window.TokenBase.isSpider) {
+                    var p = null;
+
+                    p = WGTO();
+
+                }
+                else {
+                    o();
+                }
+            })
+
+        }
+    },
+    (async function (global) {
+        //await Changelink();
+        var d = getCookie("device_id");
+        if (d === 'bw_web') {
+            fetch('https://apis.businessweekly.com.tw/membertest/v1/Tools/Send_Log', {
+                credentials: 'include',
+                method: "POST",
+                body: JSON.stringify({
+                    mbody: JSON.stringify({
+                        s: window.TokenBase.Sum,
+                        os: window.TokenBase.OSum,
+                        n: window.TokenBase.NE,
+                        e: window.TokenBase.email_value,
+                        BWG_CC: window.TokenBase.Token,
+                        token: getCookie("token"),
+                        deviceId: getCookie("device_id")
+                    })
+                }),
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8"
+                }
+            }).then(e => {
+                return e.json();
+            }).then(async e => {
+            });
+
+            await global.TokenBase.delCookie("BWG_CC");
+            await global.TokenBase.delCookie("mc_m");
+            await global.TokenBase.delCookie("mc_s");
+            await global.TokenBase.delCookie("token");
+            await global.TokenBase.delCookie("device_id");
+
+            window.location = window.location;
+        }
+        global.TokenBase.checkisSpider().then((res) => {
+            if (!global.TokenBase.isSpider) {
+                global.TokenBase.getIP();
+                BWGI().then((b) => {
+                    d = getCookie("device_id");
+                    if (d === 'bw_web') {
+                        fetch('https://apis.businessweekly.com.tw/member/v1/Tools/Send_Log', {
+                            credentials: 'include',
+                            method: "POST",
+                            body: JSON.stringify({
+                                mbody: JSON.stringify({
+                                    s: window.TokenBase.Sum,
+                                    os: window.TokenBase.OSum,
+                                    n: window.TokenBase.NE,
+                                    e: window.TokenBase.email_value,
+                                    BWG_CC: window.TokenBase.Token,
+                                    token: getCookie("token"),
+                                    deviceId: getCookie("device_id")
+                                })
+                            }),
+                            headers: {
+                                "Content-Type": "application/json; charset=utf-8"
+                            }
+                        }).then(e => {
+                            return e.json();
+                        }).then(async e => {
+                        });
+                    }
+                    if (global.TokenBase.Sum != 0 && global.TokenBase.Sum != '') {
+                        WGRI();
+                    }
+                });
+            }
+        })
+        //Changelink();
+        let buttons = document.querySelectorAll('[data-autoutm]') || [];
+
+        if (buttons.length > 0) {
+            let queryParams2 = getQueryforEachVariable();
+            for (let i = 0, len = buttons.length; i < len; i++) {
+                try {
+                    let h = buttons[i].getAttribute('href');
+                    var ab = h;
+                    if (queryParams2.utm_source != "undefined" && queryParams2.utm_source != null) {
+                        ab = addOrUpdateUrlParam(ab, "utm_source", queryParams2.utm_source);
+                    }
+                    if (queryParams2.utm_medium != "undefined" && queryParams2.utm_medium != null) {
+                        ab = addOrUpdateUrlParam(ab, "utm_medium", queryParams2.utm_medium);
+                    }
+                    if (queryParams2.utm_campaign != "undefined" && queryParams2.utm_campaign != null) {
+                        ab = addOrUpdateUrlParam(ab, "utm_campaign", queryParams2.utm_campaign);
+                    }
+                    if (queryParams2.utm_content != "undefined" && queryParams2.utm_content != null) {
+                        ab = addOrUpdateUrlParam(ab, "utm_content", queryParams2.utm_content);
+                    }
+                    if (queryParams2.utm_term != "undefined" && queryParams2.utm_term != null) {
+                        ab = addOrUpdateUrlParam(ab, "utm_term", queryParams2.utm_term);
+                    }
+                    if (queryParams2.ftag != "undefined" && queryParams2.ftag != null) {
+                        ab = addOrUpdateUrlParam(ab, "Ftag", queryParams2.ftag);
+                    }
+                    if (queryParams2.rf != "undefined" && queryParams2.rf != null) {
+                        ab = addOrUpdateUrlParam(ab, "rf", queryParams2.rf);
+                    }
+                    buttons[i].href = ab;
+
+                } catch (err) { throw err }
+            }
+        }
+    })(window);
+
+async function BWGI() {
+    return new Promise(function (e, o) {
+        //await Changelink();
+        if (!window.TokenBase.isSpider) {
+            var p = null;
+            //if (window.location.href.indexOf('m.businessweekly.com.tw') > -1 ||
+            //    window.location.href.indexOf('club.businessweekly.com.tw') > -1 ||                 window.location.href.indexOf('bwplus.com.tw') > - 1) {
+            //    window.TokenBase.Token = null;
+            //    p = WGTO();
+            //}
+            //else {
+            //    p = null;
+            //}
+            p = WGTO();
+            fetch(window.TokenBase.apis.Domain + window.TokenBase.apis.BIO, {
+                credentials: 'include',
+                method: "POST",
+                body: JSON.stringify({
+                    Token: getCookie("BWG_CC"),
+                    PlusToken: p,
+                    Url: window.location.href
+                }),
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8"
+                }
+            })
+                .then(function (res) {
+                    return res.json();
+                })
+                .then(function (result) {
+                    window.TokenBase.setCookie('BWG_CC', result.jData.token, 15)
+                        .then(function () {
+                            if (result.errorCode == 0) {
+                                window.TokenBase.Token = result.jData.token;
+                                if (result.jData.id == null) {
+                                    window.TokenBase.Sum = "";
+                                }
+                                else {
+                                    window.TokenBase.Sum = result.jData.id;
+                                }
+                                window.TokenBase.OSum = result.jData.ssO_ID;
+                                window.TokenBase.NE = result.jData.name;
+                                window.TokenBase.email_value = result.jData.email;
+                                window.TokenBase.MH = result.jData.mobile;
+                                window.TokenBase.PU = result.jData.photoUrl;
+                                window.TokenBase.LC = result.jData.levelCode;
+                                window.TokenBase.BMRGH = result.jData.bwg_Member_Role_Group_History;
+                                window.TokenBase.SK = result.jData.sKey;
+                                window.TokenBase.status = result.jData.status;
+                                window.TokenBase.SD = result.jData.subscriberiID;
+                                window.TokenBase.BMRGHR = result.jData.role;
+                                BPP();
+                            }
+                            else {
+                                window.TokenBase.Sum = "";
+                                window.TokenBase.OSum = "";
+                                window.TokenBase.NE = "";
+                                window.TokenBase.MH = "";
+                                window.TokenBase.PU = "";
+                                window.TokenBase.LC = "";
+                                window.TokenBase.SK = "";
+                                window.TokenBase.SD = "";
+                                window.TokenBase.status = "";
+                                window.TokenBase.BMRGH = [];
+                                window.TokenBase.BMRGHR = [];
+                                window.TokenBase.WGR = [];
+                                window.TokenBase.groupid = [];
+                            }
+                            e(result);
+                        })
+                })
+        }
+        else {
+            o();
+        }
+    })
+}
+async function BPP() {
+    //await Changelink();
+    if (window.secureToken && typeof window.secureToken.transferToTokenV2 === 'function') {
+        window.secureToken.transferToTokenV2().then(msg => { })
+    }
+}

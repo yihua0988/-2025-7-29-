@@ -1,0 +1,64 @@
+﻿
+var rut = "/Archive/";
+//#region 登入
+
+//登入後歡迎視窗顯示隱藏
+function LogWelComeMsg()
+{
+    var LogStatus = document.getElementById("ArchiveLogStatusHdn");
+    var LogMsg = document.getElementById("ArticleHeaderLoginMsg");
+
+    if(LogStatus != null && LogMsg != null){
+        document.getElementById("ArticleHeaderLoginMsg").style.display = LogStatus.value;
+    }
+}
+
+//#endregion
+
+//#region 白晝黑夜模式
+
+//白模式
+function styleSheetWhiteStyle() {
+    var x_style1 = document.getElementById("style1");
+    if (x_style1 != null)
+        $("#style1").attr("disabled", "disabled");
+    localStorage.setItem("WhiteBlackStatus", "white");
+}
+
+
+//黑模式
+function styleSheetBlackStyle() {
+    var style1 = document.getElementById("style1");
+    if (style1 == null) {
+        $("<link/>", {
+            id: "style1",
+            rel: "stylesheet",
+            type: "text/css",
+            href: rut + "css/blackstyle.css"
+        }).appendTo("head");
+    }
+    else
+        $("#style1").removeAttr("disabled");
+
+    localStorage.setItem("WhiteBlackStatus", "black");
+}
+
+function CheckLocalStorageForWhiteOrBlackStyle()
+{
+    var WhiteBlackStatus = localStorage.getItem("WhiteBlackStatus");
+    if (WhiteBlackStatus == "black")
+        styleSheetBlackStyle();
+    else
+        styleSheetWhiteStyle();
+}
+
+//#endregion
+
+$(document).ready(function () {
+    delDomainCookie("SmartBrowseHistoryCookie");//刪除網域cookie
+    delDomainCookie("SmartCourseShoppingCar");//刪除網域cookie
+    CheckLocalStorageForWhiteOrBlackStyle();//白晝黑夜模式
+    LogWelComeMsg(); //歡迎視窗顯示隱藏
+});
+
+

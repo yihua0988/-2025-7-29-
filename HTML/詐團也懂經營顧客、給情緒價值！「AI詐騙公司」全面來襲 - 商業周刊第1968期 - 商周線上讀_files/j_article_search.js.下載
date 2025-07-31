@@ -1,0 +1,40 @@
+﻿$('.search input').autoComplete({
+    minChars: 1,
+    source: function (term, response) {
+        var xdata = {
+            KeyWord: term.toString()
+        };
+        $.ajax({
+            type: "post",
+            url: "Home/SearchAutoComplete",
+            data: {
+                __RequestVerificationToken: $('#__AjaxAntiForgeryForm input[name=__RequestVerificationToken]').val(),
+                someValue: JSON.stringify(xdata).toString()
+            },
+            success: function (trn_data) {
+                response(trn_data);
+            }
+        });
+    },
+    menuClass: 'keysword-promot',
+    onSelect: function () {
+        moveSubmit();
+    }
+});
+
+// key字時，修改「馬上查詢」的按鈕位置
+var $search = $('.search input'),
+    $submit = $('.search-form .submit'),
+    keywords = $('.keysword-promot');
+$search.on('keyup', function () {
+    moveSubmit();
+});
+function moveSubmit() {
+    setTimeout(function () {
+        if (keywords.css('display') != 'none') {
+            $submit.css('marginTop', keywords.css('height'));
+        } else {
+            $submit.css('marginTop', '16px');
+        }
+    }, 250);
+}

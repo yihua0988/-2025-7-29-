@@ -1,0 +1,48 @@
+function doSubmif(ltype) {
+
+  // email驗證
+  function validateEmail(email) {
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    return emailReg.test(email);
+  }
+
+  // 提示文字
+  function alertWords(word) {
+    $('.verify-notyet').detach();
+    $('.login-form .-password').after('<div class="verify-notyet">' + word + '</div>');
+  }
+
+  // submit
+  function submitLogin() {
+    $("#ltype").val(ltype);
+    $("#remember").val(($("#ck_remember").attr('checked') == "checked") ? 1 : 0);
+    $("#loginForm").submit();
+  }
+
+  if(ltype === 0) {
+    // 帳號不能為空
+    if($('#email').val() === '') {
+      alertWords('「會員帳號」為必填。');
+      $('#email').focus();
+      return false;
+    }
+    // 帳號為email格式
+    else if(!validateEmail($('#email').val())) {
+      alertWords('「會員帳號」為電子信箱格式。');
+      $('#email').focus();
+      return false;
+    }
+    // 密碼不能為空
+    else if($('#pwd').val() === '') {
+      alertWords('「會員密碼」為必填。');
+      $('#pwd').focus();
+      return false;
+    }
+    else {
+      submitLogin();
+    }
+  }
+  else {
+    submitLogin();
+  }
+}
