@@ -5,7 +5,6 @@ body {
   padding: 0;
   color: #333;
 }
-
 nav {
   position: fixed;
   top: 0;
@@ -17,7 +16,6 @@ nav {
   padding: 12px 0;
   z-index: 1000;
 }
-
 nav a {
   margin: 0 15px;
   padding: 12px 20px;
@@ -29,7 +27,6 @@ nav a {
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
-
 nav a:hover {
   background-color: #003d5c;
 }
@@ -43,12 +40,9 @@ nav {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 12px 20px;
   z-index: 1000;
-  /* 取消 justify-content: flex-start; */
-  justify-content: center; /* 讓整體先置中 */
+  justify-content: center; 
   position: relative;
 }
-
-/* 警示文字放左側，使用絕對定位 */
 nav::before {
   content: "警惕詐騙！";
   color: red;
@@ -57,14 +51,12 @@ nav::before {
   white-space: nowrap;
   user-select: none;
   position: absolute;
-  left: 20px;  /* 靠左距離 */
+  left: 20px;
   top: 50%;
-  transform: translateY(-50%); /* 垂直置中 */
+  transform: translateY(-50%);
 }
-
-/* 導覽列裡的 a 仍用 flex 排版 */
 nav a {
-  margin: 0 15px; /* 按鈕間距 */
+  margin: 0 14px;
   padding: 12px 20px;
   background-color: #005a87;
   color: white;
@@ -73,40 +65,34 @@ nav a {
   font-size: 18px;
   font-weight: bold;
   transition: background-color 0.3s ease;
-  /* 導覽連結保持 inline-block */
   display: inline-block;
 }
 .content {
-  padding: 120px 20px 20px;
+  padding: 10px 20px 20px;
   text-align: center;
 }
-
 h1 {
   font-size: 36px;
   margin-bottom: 20px;
   color: #003d5c;
 }
-
 p {
   font-size: 18px;
   line-height: 1.6;
 }
-
 iframe {
-  margin-top: 40px;
+  margin-top: 10px;
   border: none;
   width: 100%;
   max-width: 1200px;
   height: 700px;
 }
-
 .subpages {
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
-
 .subpages a {
   margin: 5px;
   padding: 12px 20px;
@@ -118,12 +104,9 @@ iframe {
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
-
 .subpages a:hover {
   background-color: #ffd28a;
 }
-
-/* 頁尾樣式 */
 footer {
   text-align: center;
   padding: 20px 0;
