@@ -5,6 +5,11 @@ body {
   padding: 0;
   color: #333;
 }
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 nav {
   position: fixed;
   top: 0;
