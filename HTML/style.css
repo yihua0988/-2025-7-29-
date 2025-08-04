@@ -120,3 +120,9 @@ footer {
   color: #555;
   margin-top: 40px;
 }
+.page-title {
+  text-align: left;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #003d5c;
+}
