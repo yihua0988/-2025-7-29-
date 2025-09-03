@@ -1,117 +1,203 @@
+/* =======================
+   全站基本樣式
+======================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #9DE1F2;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   color: #333;
+  line-height: 1.6;
 }
+
 html, body {
   width: 100%;
-  max-width: 100%;
   overflow-x: hidden;
 }
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
-  display: flex;
-  justify-content: center;
-  padding: 12px 0;
-  z-index: 1000;
-}
-nav a {
-  margin: 0 15px;
-  padding: 12px 20px;
-  background-color: #005a87;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 18px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-nav a:hover {
-  background-color: #003d5c;
-}
+
+/* =======================
+   導覽列
+======================= */
 nav {
   display: flex;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 12px 20px;
-  z-index: 1000;
-  justify-content: center; 
+  backdrop-filter: saturate(180%) blur(8px);
   position: relative;
+  z-index: 1000;
 }
-nav::before {
-  content: "警惕詐騙！";
-  color: red;
-  font-weight: bold;
-  font-size: 24px;
-  white-space: nowrap;
-  user-select: none;
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-}
+
 nav a {
-  margin: 0 14px;
-  padding: 12px 20px;
+  width: 140px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #005a87;
-  color: white;
+  color: #fff;
   text-decoration: none;
-  border-radius: 5px;
-  font-size: 18px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  display: inline-block;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: clamp(14px, 2.2vw, 18px);
+  transition: background-color .3s ease, transform .06s ease;
 }
+
+nav a:hover { background-color: #003d5c; }
+nav a:active { transform: translateY(1px); }
+
+/* =======================
+   主要內容區
+======================= */
 .content {
-  padding: 10px 20px 20px;
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
 }
-h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
+
+.main-title {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: bold;
   color: #003d5c;
 }
-p {
-  font-size: 18px;
-  line-height: 1.6;
+
+.content h2 {
+  font-size: clamp(20px, 3vw, 32px);
+  color: #003d5c;
+  margin: 15px 0;
 }
-iframe {
-  margin-top: 10px;
-  border: none;
-  width: 100%;
-  max-width: 1200px;
-  height: 700px;
+
+.content p {
+  font-size: clamp(14px, 2.5vw, 18px);
+  text-align: justify;
+  margin: 10px 0;
 }
+
+.content a {
+  color: #005a87;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* =======================
+   子頁面按鈕容器
+======================= */
 .subpages {
-  margin-top: 20px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2rem;
 }
+
 .subpages a {
-  margin: 5px;
-  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(130px, 18vw, 180px);
+  height: clamp(45px, 6vw, 55px);
+  font-size: clamp(14px, 2.5vw, 18px);
   background: white;
   color: #333;
   text-decoration: none;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  border-radius: 8px;
+  font-weight: 700;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.06s ease;
 }
+
 .subpages a:hover {
   background-color: #ffd28a;
 }
+
+.subpages a:active {
+  transform: scale(0.97);
+}
+
+/* =======================
+   一般 iframe / video
+======================= */
+.content iframe,
+.content video {
+  width: 100%;
+  max-width: 1200px;
+  height: 700px; /* 固定高度 */
+  border: none;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+/* =======================
+   Power BI iframe 容器
+======================= */
+.powerbi-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: visible; /* 不裁切 */
+  position: relative;
+}
+
+.powerbi-container iframe {
+  width: 100%;
+  height: 700px; /* 固定高度 */
+  border: none;
+  display: block;
+  margin: 0 auto;
+  transform: none !important;
+}
+
+/* =======================
+   App QR Code 列表
+======================= */
+.app-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
+}
+
+.app-list li {
+  text-align: center;
+  flex: 0 0 160px;
+}
+
+.app-list img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+}
+
+/* =======================
+   作品索引
+======================= */
+.portfolio-section p a {
+  color: #005a87;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* =======================
+   頁尾
+======================= */
 footer {
   text-align: center;
   padding: 20px 0;
@@ -120,9 +206,41 @@ footer {
   color: #555;
   margin-top: 40px;
 }
-.page-title {
-  text-align: left;
-  font-size: 18px;
-  margin-bottom: 20px;
-  color: #003d5c;
+
+/* =======================
+   響應式調整
+======================= */
+@media (max-width: 600px) {
+  nav a {
+    width: 120px;
+    height: 44px;
+    font-size: 14px;
+  }
+
+  .main-title {
+    font-size: clamp(28px, 7vw, 40px);
+  }
+
+  .content h2 {
+    font-size: clamp(18px, 5vw, 24px);
+  }
+
+  .content p {
+    font-size: clamp(12px, 4vw, 16px);
+  }
+
+  .subpages a {
+    width: clamp(80px, 35vw, 140px);
+    height: clamp(35px, 8vw, 50px);
+    font-size: clamp(12px, 4vw, 16px);
+  }
+
+  .app-list li {
+    flex: 0 0 120px;
+  }
+
+  .app-list img {
+    width: 120px;
+    height: 120px;
+  }
 }

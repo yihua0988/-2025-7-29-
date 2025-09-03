@@ -6,29 +6,49 @@
   <title>反詐騙宣導影片及新聞</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+<script>
+function resizeIframe(obj) {
+  try {
+    // 讀取 iframe 內部內容高度
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  } catch (e) {
+    // 若跨域失敗，可設一個預設高度
+    obj.style.height = '1200px';
+  }
+}
+</script>
 <body>
   <nav>
     <a href="../index.html">首頁</a>
     <a href="1-1.html">電詐模式分析</a>
     <a href="2-1.html">詐騙案件分析</a>
-    <a href="3-1.html">反詐騙宣導影片及新聞</a>
-    <a href="4-1.html">對現在詐騙總結及省思</a>
+    <a href="3-1.html">反詐騙宣導</a>
+    <a href="4-1.html">總結</a>
   </nav>
 <div class="subpages">
       <a href="3-1.html">AI亂入罷免</a>
-      <a href="3-2.html">AI詐騙一年暴增四倍多</a>
-      <a href="3-3.html">詐團也懂經營顧客</a>
-	  <a href="3-4.html">逮捕詐騙集團影片</a>
-      <a href="3-5.html">AI詐騙影片</a>
-      <a href="3-6.html">反詐騙宣導影片</a>
+      <a href="3-2.html">一年暴增四倍多</a>
+      <a href="3-3.html">詐團也懂經營</a>
+	  <a href="3-4.html">遭AI詐騙新聞</a>
+      <a href="3-5.html">黑幫經營遭查獲</a>
+      <a href="3-6.html">反深偽宣導影片</a>
     </div>
-  <div class="content">
-    <h1>AI詐騙新聞</h1>
-    <p>OpenAI執行長擔憂成真！AI詐騙一年暴增四倍多 傳統驗證方式已失效</p>
-    <iframe src="ai-fraud-20250729.html" allowfullscreen></iframe>
-	</br>
-    <a href=https://news.pchome.com.tw/science/technice/20250729/index-75377399875811338005.html>來源:https://news.pchome.com.tw/science/technice/20250729/index-75377399875811338005.html</a>
+   <div class="content">
+  <h1>AI詐騙新聞</h1>
+  <p>OpenAI執行長擔憂成真！AI詐騙一年暴增四倍多 傳統驗證方式已失效</p>
+
+  <!-- 外層容器 -->
+  <div class="iframe-wrapper">
+    <iframe 
+      src="ai-fraud-20250729.html" 
+      title="AI詐騙一年暴增四倍多 本地檔案"
+      sandbox="allow-same-origin allow-scripts">
+    </iframe>
   </div>
+
+  <br />
+     <a href=https://news.pchome.com.tw/science/technice/20250729/index-75377399875811338005.html>來源:https://news.pchome.com.tw/science/technice/20250729/index-75377399875811338005.html</a>
+</div>
   <footer>
     <p>&copy; 2025 洪益華 | 所有權保留</p>
   </footer>
