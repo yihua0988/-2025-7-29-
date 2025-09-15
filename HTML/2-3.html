@@ -5,6 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>108年~113年臺中市報案統計表</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* 第一個 iframe 專用樣式 */
+    .powerbi-container.first-iframe {
+      width: 1160px;     /* 桌機固定寬度 */
+      height: 380px;   /* 桌機固定高度 */
+      margin: 20px auto;
+      overflow: hidden;
+    }
+
+    .powerbi-container.first-iframe iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* 手機版響應式 */
+    @media (max-width: 768px) {
+      .powerbi-container.first-iframe {
+        width: 100%;   
+        height: auto;  
+        aspect-ratio: 1160 / 380; /* 維持比例 */
+      }
+      .powerbi-container.first-iframe iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -25,28 +54,31 @@
 
   <div class="content">
     <h1>108年~113年臺中市報案統計表</h1>
-    <p>此頁面展示了臺中市從108年到113年的各項報案統計資料，幫助了解不同報案模式和案件趨勢。</p>
+    <p>
+      本頁面透過 Power BI 報表，呈現臺中市自 108 年至 113 年各項報案統計資料。使用者可以觀察民眾使用的不同報案方式，包括派出所現場報案、165 詢問電話及其他管道，並了解各年案件數量的變化趨勢。整體來看，近年報案數量呈現逐步增加的趨勢，反映出民眾對詐騙案件的警覺性提高以及資訊揭露管道的便利性。<br><br>
+      第三個 Power BI 報表進一步分析了 110 電話報案的類別與數量，其中詐欺案件在臺中市屬於一般刑案，雖然在整體刑案中占比最低，但仍顯示出民眾通常在不知情的情況下遭受詐騙。多數受害者都是透過派出所詢問或撥打 165 才發現自身可能成為受害者，這也說明詐騙手法隱蔽且具有迷惑性，容易讓民眾掉以輕心。透過這些報表，使用者可以清楚比較不同報案方式的使用頻率、案件類別分布，掌握臺中市詐騙案件的整體趨勢與特性，同時了解詐欺案件雖屬一般刑案，但其潛在風險與被害情況不可小覷。這些資訊對於民眾提升防詐意識、警政單位規劃防範措施，以及相關政策制定都有實質參考價值。
+    </p>
 
-    <!-- Power BI iframe 1 -->
-    <div class="powerbi-container">
+    <!-- Power BI iframe 1 (限定大小 + RWD) -->
+    <div class="powerbi-container first-iframe">
       <iframe 
-        src="https://app.powerbi.com/view?r=eyJrIjoiNzk5YTcwNTUtYTViNC00MWZmLTk4ZGEtYmQ4ODFlZjFiOWIzIiwidCI6IjJmY2YxMmE1LWI4ODctNDYxNi1iY2Y5LWUzMjIzNTJiMGQ1ZCJ9" 
+        src="https://app.powerbi.com/view?r=eyJrIjoiYzliMDEzZjctYmIzMy00ZjFjLWI1YWQtYjJmNmU0YWU1ZTkzIiwidCI6ImJjODlhMzJmLWQ4N2YtNGNjZS1hMjM1LWIzNDQxYmM2OWU5MCJ9" 
         frameborder="0" allowfullscreen>
       </iframe>
     </div>
 
-    <!-- Power BI iframe 2 -->
+    <!-- Power BI iframe 2 (維持原本樣式) -->
     <div class="powerbi-container">
       <iframe 
-        src="https://app.powerbi.com/view?r=eyJrIjoiNzk5YTcwNTUtYTViNC00MWZmLTk4ZGEtYmQ4ODFlZjFiOWIzIiwidCI6IjJmY2YxMmE1LWI4ODctNDYxNi1iY2Y5LWUzMjIzNTJiMGQ1ZCJ9&pageName=4b252418120b2a7b23ca" 
+        src="https://app.powerbi.com/view?r=eyJrIjoiOWU2YzU1NTYtNzgzNC00YjNmLTlhMWYtOTM5ZTI1MmExNDg4IiwidCI6ImJjODlhMzJmLWQ4N2YtNGNjZS1hMjM1LWIzNDQxYmM2OWU5MCJ9" 
         frameborder="0" allowfullscreen>
       </iframe>
     </div>
 
-    <!-- Power BI iframe 3 -->
+    <!-- Power BI iframe 3 (維持原本樣式) -->
     <div class="powerbi-container">
       <iframe 
-        src="https://app.powerbi.com/view?r=eyJrIjoiNmIyZGVkNzMtZWNhOC00YzFkLTlkMzgtZjE0Yjk4ZDFhYTc5IiwidCI6IjJmY2YxMmE1LWI4ODctNDYxNi1iY2Y5LWUzMjIzNTJiMGQ1ZCJ9" 
+        src="https://app.powerbi.com/view?r=eyJrIjoiOGI1NTZmZTgtYTNlYy00ZDljLWFjZDEtMGViZWE3ODZmZTc1IiwidCI6ImJjODlhMzJmLWQ4N2YtNGNjZS1hMjM1LWIzNDQxYmM2OWU5MCJ9" 
         frameborder="0" allowfullscreen>
       </iframe>
     </div>

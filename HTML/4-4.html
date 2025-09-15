@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
@@ -6,83 +6,80 @@
   <title>我們應該怎麼做？（省思與行動）</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    .content h1 {
-      font-weight: 700;
-      font-size: 2.4rem;
-      margin-bottom: 20px;
-      color: #2c6b49;
-      text-align: center;
-    }
-    .tips {
-      background-color: rgba(228, 240, 231, 0.85);
-      border: 2px solid rgba(228, 240, 231, 1);
-      padding: 20px 25px;
-      margin: 20px auto;
-      width: 80%;
-      max-width: 850px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-      font-family: 'Roboto', sans-serif;
-      line-height: 1.8;
-      font-size: 1.1rem;
-      color: #334d3d;
-    }
-    .tips p {
-      margin: 15px 0;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .tips p.emoji-title {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: #20603d;
-    }
-    .conclusion {
-      margin-top: 30px;
-      font-weight: 900;
-      font-size: 33px;
-      color: #1f4d2f;
-      background-color: #d7ead9;
-      border-radius: 10px;
-      padding: 20px 25px;
-      box-shadow: inset 0 0 8px #9bd7a6;
-      line-height: 1.5;
-      font-family: "標楷體", "DFKai-SB", serif;
-      text-align: left;
-    }
-    .image-container {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .image-container img {
-	  max-width: 100%; 
-	  max-height: 600px; 
-	  width: auto; 
-	  height: auto;
-	  border-radius: 10px;
-	  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-	  transition: transform 0.3s ease;
-	}
 
-	.image-container img:hover {
-	  transform: scale(1.2);
-	}
-    .image-source {
-      font-size: 0.9rem;
-      color: #666;
-      text-align: center;
-      margin-top: 10px;
-    }
-    .image-source a {
-      color: #1f4d2f;
-      text-decoration: none;
-    }
-    .image-source a:hover {
-      text-decoration: underline;
-    }
+  <!-- 4-4 專用 CSS -->
+  <style>
+  /* =======================
+     4-4 專用樣式
+  ======================== */
+  .emoji-title {
+    font-size: clamp(44px, 8vw, 68px);
+    font-weight: 800;
+    color: #003d5c;
+    margin: 18px auto 12px;
+    width: min(95%, 1200px);
+    text-align: left;
+  }
+
+  .image-block {
+    width: min(95%, 1200px);
+    margin: 30px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #e4f0e7, #c8dcc8);
+    border: 2px solid rgba(200, 220, 200, 1);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .image-block .image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,.25);
+  }
+
+  .image-text {
+    font-size: clamp(14px, 2.8vw, 20px);
+    line-height: 1.85;
+    color: #334d3d;
+    margin: 8px 0 12px;
+    text-align: justify;
+  }
+
+  .image-source {
+    font-size: clamp(13px, 2.4vw, 18px);
+    font-weight: 800;
+    color: #444;
+    text-align: center;
+    margin: 10px auto 0;
+    width: min(95%, 1200px);
+  }
+
+  .image-source a {
+    color: #1f4d2f;
+    text-decoration: underline;
+  }
+
+  .conclusion {
+    margin: 50px auto;
+    font-weight: 900;
+    font-size: clamp(30px, 6vw, 48px);
+    color: #1f4d2f;
+    background: linear-gradient(135deg, #d7ead9, #b9e3c6);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: inset 0 0 12px rgba(100,150,120,0.4);
+    line-height: 1.8;
+    font-family: "標楷體", "DFKai-SB", serif;
+    text-align: center;
+    width: min(95%, 1000px);
+  }
+
+  @media (max-width: 600px) {
+    .emoji-title { font-size: clamp(24px, 8vw, 36px); }
+    .conclusion { font-size: clamp(18px, 5vw, 32px); }
+  }
   </style>
 </head>
 <body>
@@ -93,51 +90,73 @@
     <a href="3-1.html">反詐騙宣導</a>
     <a href="4-1.html">總結</a>
   </nav>
-<div class="subpages">
-      <a href="4-1.html">詐騙趨勢總結</a>
-      <a href="4-2.html">受害人特徵</a>
-      <a href="4-3.html">防詐破口與責任</a>
-      <a href="4-4.html">我們該怎麼做？</a>
-    </div>
+
+  <div class="subpages">
+    <a href="4-1.html">詐騙趨勢總結</a>
+    <a href="4-2.html">受害人特徵</a>
+    <a href="4-3.html">防詐破口與責任</a>
+    <a href="4-4.html">我們該怎麼做？</a>
+  </div>
+
   <div class="content">
     <h1>我們應該怎麼做？（省思與行動）</h1>
-    <div class="tips">
-      <p class="emoji-title">⚠ 接到不明電話「保持冷靜＋多方查證」</p>
+
+    <p class="emoji-title">⚠ 接到不明電話</p>
+    <section class="image-block">
+      <div class="image-text">保持冷靜，不直接回覆或操作，透過官方管道查證對方身份。</div>
       <div class="image-container">
         <img src="4-4-1.jpg" alt="接到不明電話" />
       </div>
-      <p class="emoji-title">🔎 接觸金錢時「拒絕急迫、查證帳戶」</p>
+    </section>
+
+    <p class="emoji-title">🔎 金錢操作前查證</p>
+    <section class="image-block">
+      <div class="image-text">遇到金錢交易、匯款或投資要求，先確認帳戶真實性及交易安全。</div>
       <div class="image-container">
         <img src="4-4-2.webp" alt="查證帳戶" />
-        <p class="image-source">
-           <a href="https://www.newloan.com.tw/wp-content/uploads/2024/01/MiConv.com__01_%E8%AD%A6%E7%A4%BA%E5%B8%B3%E6%88%B6-800x800.webp" target="_blank">來源:https://www.newloan.com.tw/</a>
-        </p>
       </div>
-      <p class="emoji-title">🧓 主動關心家中長輩是否接獲詐騙</p>
-		<div class="image-container">
-		  <img src="4-4-3.jpg" alt="關心長輩" />
-		  <p class="image-source">
-			<a href="https://www.luzhu-hro.tycg.gov.tw/News_Content.aspx?n=13120&s=1334338" target="_blank">來源:https://www.luzhu-hro.tycg.gov.tw/</a>
-		  </p>
-	    </div>
-      <p class="emoji-title">📢 分享案例，幫助更多人識破陷阱</p>
-		<div class="image-container">
-		  <img src="4-4-4.png" alt="分享案例" />
-		  <p class="image-source">
-			 <a href="https://www.instagram.com/p/DHkiqpOu-KW/?img_index=8" target="_blank">來源:https://www.instagram.com/</a>
-		  </p>
-		</div>
-      <p class="emoji-title">🧠 永遠記得：「公家機關不會叫你操作ATM」</p>
+      <p class="image-source">
+        <a href="https://www.newloan.com.tw/wp-content/uploads/2024/01/MiConv.com__01_%E8%AD%A6%E7%A4%BA%E5%B8%B3%E6%88%B6-800x800.webp" target="_blank">來源：https://www.newloan.com.tw/</a>
+      </p>
+    </section>
+
+    <p class="emoji-title">🧓 關心家中長輩</p>
+    <section class="image-block">
+      <div class="image-text">主動詢問家中長輩是否接獲可疑訊息，協助辨識詐騙電話或訊息。</div>
+      <div class="image-container">
+        <img src="4-4-3.jpg" alt="關心長輩" />
+      </div>
+      <p class="image-source">
+        <a href="https://www.luzhu-hro.tycg.gov.tw/News_Content.aspx?n=13120&s=1334338" target="_blank">來源：https://www.luzhu-hro.tycg.gov.tw/</a>
+      </p>
+    </section>
+
+    <p class="emoji-title">📢 分享防詐案例</p>
+    <section class="image-block">
+      <div class="image-text">將實際案例分享給親友或社群，提高大家警覺性，降低受害風險。</div>
+      <div class="image-container">
+        <img src="4-4-4.png" alt="分享案例" />
+      </div>
+      <p class="image-source">
+        <a href="https://www.instagram.com/p/DHkiqpOu-KW/?img_index=8" target="_blank">來源：https://www.instagram.com/</a>
+      </p>
+    </section>
+
+    <p class="emoji-title">🧠 記住官方不會要求操作ATM</p>
+    <section class="image-block">
+      <div class="image-text">任何來自公家機關的要求操作 ATM 或匯款請先核實，避免受騙。</div>
       <div class="image-container">
         <img src="4-4-5.jpg" alt="公家機關不會要求操作ATM" />
       </div>
-      <p class="conclusion">
-        結語：<br />
-        詐騙集團不會停止進化，我們的防備也不能停止更新。<br />
-        提高警覺、查證為先、冷靜面對，是守住自己財產與尊嚴的第一步。
-      </p>
-    </div>
+    </section>
+
+    <p class="conclusion">
+      結語：<br />
+      詐騙集團不會停止進化，我們的防備也不能停止更新。<br />
+      提高警覺、查證為先、冷靜面對，是守住自己財產與尊嚴的第一步。
+    </p>
   </div>
+
   <footer>
     <p>&copy; 2025 洪益華 | 所有權保留</p>
   </footer>

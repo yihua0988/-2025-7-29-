@@ -6,25 +6,99 @@
   <title>近年詐騙防制資料分析網站</title>
   <link rel="stylesheet" href="HTML/style.css" />
   <style>
-    /* 整個 index 行距縮小到一半 */
-    body, p, h1, h2, li {
-      line-height: 1;
+    /* 整體字體放大 */
+    body, p, li {
+      line-height: 1.5;
+      font-family: Arial, sans-serif;
+      font-size: clamp(16px, 2vw, 20px);
     }
 
-    /* App QR Code 列表文字行距縮小 */
-    .app-list li p {
-      line-height: 1;
-      margin-top: 8px;
+    /* 主標題與副標題 */
+    .main-title {
+      font-size: clamp(32px, 5vw, 48px);
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-size: clamp(24px, 4vw, 32px);
+      margin: 20px 0 10px 0;
+    }
+
+    /* 表格樣式改無格線，分類字放大，文字靠左 */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 25px;
+    }
+
+    table td {
+      padding: 10px 0;
+      vertical-align: top;
+      text-align: left;
+      font-size: clamp(16px, 2vw, 20px);
+    }
+
+    table td.category {
+      font-weight: bold;
+      font-size: clamp(20px, 2.5vw, 26px);
+      width: 30%;
+      border-bottom: 2px solid #000;
+    }
+
+    table td.category + td {
+      border-bottom: 2px solid #000;
     }
 
     /* 165 儀表板 iframe */
     iframe.dashboard-165 {
       width: 100%;
+      max-width: 1600px;
       height: 900px;
       border: none;
       display: block;
+      margin: 0 auto 10px auto;
+    }
+
+    /* App QR Code 區塊 */
+    .app-container {
+      margin-bottom: 25px;
+    }
+
+    .app-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .app-list li {
+      flex: 1 1 120px;
+      text-align: center;
+    }
+
+    .app-list li img {
+      width: 100px;
+      height: 100px;
+      display: block;
       margin: 0 auto;
     }
+
+    .app-list li p {
+      font-size: 14px;
+      line-height: 1.2;
+      margin-top: 5px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
   </style>
 </head>
 <body>
@@ -39,8 +113,39 @@
   <div class="content">
     <h1 class="main-title">近年詐騙防制資料分析</h1>
     <h2>⚠️ 警覺詐騙，守護財產與尊嚴</h2>
-    <p>本網站透過數據、新聞、實例與省思，協助您深入了解詐騙趨勢，提升防詐意識。</p>
+    <p>本網站透過數據、新聞、實例與總結，協助您深入了解詐騙趨勢，提升防詐意識。</p>
     <p>以下內容都是用政府公開資訊做分析（<a href="https://data.gov.tw/" target="_blank">data.gov.tw</a>）</p>
+
+    <!-- 表格式首頁內容 -->
+    <h2>網站資訊概覽</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td class="category">網站背景</td>
+          <td>
+            隨著網路與金融科技發展，詐騙手法日益多樣化。<br>
+            受害人群涵蓋各年齡層，從電話、網購到社群媒體詐騙。<br>
+            透過數據分析，可了解高發區域、典型案例與警示模式。
+          </td>
+        </tr>
+        <tr>
+          <td class="category">網站目的</td>
+          <td>
+            提供最新詐騙案例與數據分析，提升民眾防詐意識。<br>
+            協助大家掌握詐騙趨勢，並學會基本防詐技巧。
+          </td>
+        </tr>
+        <tr>
+          <td class="category">防詐小提醒</td>
+          <td>
+            不隨意點擊來路不明的連結或附件。<br>
+            核對陌生電話或簡訊資訊的真偽。<br>
+            警惕「先匯款再發貨」或「高額獎金」的誘因。<br>
+            遇到疑似詐騙案件，立即撥打165報案。
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
     <!-- 165 儀表板 -->
     <h2>&#x25BC; 165 打詐儀表板 &#x25BC;</h2>
@@ -51,14 +156,26 @@
     </iframe>
     <p><a href="https://165.npa.gov.tw/#/" target="_blank">來源: 165 反詐騙官方網站</a></p>
 
-    <!-- App QR Code -->
-    <h2>📱 下載警政服務 App ＆ 加入防詐社群</h2>
-    <ul class="app-list">
-      <li><img src="HTML/code1.jpg" alt="iOS QR" /><p>警政服務APP<br>iOS版</p></li>
-      <li><img src="HTML/code2.jpg" alt="Android QR" /><p>警政服務APP<br>Android版</p></li>
-      <li><img src="HTML/code3.jpg" alt="Facebook QR" /><p>Facebook<br>專頁</p></li>
-      <li><img src="HTML/code4.jpg" alt="LINE QR" /><p>LINE<br>防騙宣導群組</p></li>
-    </ul>
+<!-- App QR Code -->
+<h2>📱 下載警政服務 App ＆ 加入防詐社群</h2>
+<div class="app-container" style="text-align:center; margin-bottom:25px;">
+  <div style="display:inline-block; margin:20px;">
+    <img src="HTML/code1.jpg" alt="iOS QR" style="width:200px; height:200px; display:block; margin:0 auto;">
+    <p style="font-size:14px; line-height:1.2; margin-top:5px;">警政服務APP<br>iOS版<br>立即下載</p>
+  </div>
+  <div style="display:inline-block; margin:20px;">
+    <img src="HTML/code2.jpg" alt="Android QR" style="width:200px; height:200px; display:block; margin:0 auto;">
+    <p style="font-size:14px; line-height:1.2; margin-top:5px;">警政服務APP<br>Android版<br>立即下載</p>
+  </div>
+  <div style="display:inline-block; margin:20px;">
+    <img src="HTML/code3.jpg" alt="Facebook QR" style="width:200px; height:200px; display:block; margin:0 auto;">
+    <p style="font-size:14px; line-height:1.2; margin-top:5px;">Facebook<br>官方專頁<br>加入社群</p>
+  </div>
+  <div style="display:inline-block; margin:20px;">
+    <img src="HTML/code4.jpg" alt="LINE QR" style="width:200px; height:200px; display:block; margin:0 auto;">
+    <p style="font-size:14px; line-height:1.2; margin-top:5px;">LINE<br>防騙宣導群組<br>加入社群</p>
+  </div>
+</div>
 
     <!-- 作品索引 -->
     <h2>📂 我的作品索引與聯繫方式</h2>

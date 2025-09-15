@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>反詐騙宣導影片及新聞</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* 調整 content 內文字行距和段落間距 */
+    .content p {
+      line-height: 1.3;      /* 行距 */
+      margin: 0 0 0.3rem 0;  /* 下方空白縮小 */
+    }
+
+    /* 影片上下留白縮小 */
+    .content video {
+      display: block;       /* 保證 margin 生效 */
+      margin: 0 0 0.5rem 0; /* 上方0 下方0.5rem */
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -14,31 +29,41 @@
     <a href="3-1.html">反詐騙宣導</a>
     <a href="4-1.html">總結</a>
   </nav>
-<div class="subpages">
-      <a href="3-1.html">AI亂入罷免</a>
-      <a href="3-2.html">一年暴增四倍多</a>
-      <a href="3-3.html">詐團也懂經營</a>
-	  <a href="3-4.html">遭AI詐騙新聞</a>
-      <a href="3-5.html">黑幫經營遭查獲</a>
-      <a href="3-6.html">反深偽宣導影片</a>
-    </div>
-  <div class="content">
-    <h1>AI詐騙影片</h1>
-    <p>影片：AI合成假檢警！婦人 8 帳戶遭詐近 8900 萬，銀行未即時察覺。</p>
-    <video id="fraudVideo" width="100%" height="700" controls>
-      <source src="AI合成假檢警!婦＂8帳戶8891萬被詐光＂銀行也沒發現!？│中視新聞 20250611.mp4" type="video/mp4" />
-      您的瀏覽器不支援 HTML5 影片播放。
-    </video>
-    <a href="https://www.youtube.com/watch?v=WeoJIU3RXU0" target="_blank">
-      來源：https://www.youtube.com/watch?v=WeoJIU3RXU0
-    </a>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const video = document.getElementById('fraudVideo');
-        video.playbackRate = 1.2;
-      });
-    </script>
+
+  <div class="subpages">
+    <a href="3-1.html">AI亂入罷免</a>
+    <a href="3-2.html">一年暴增四倍多</a>
+    <a href="3-3.html">詐團也懂經營</a>
+    <a href="3-4.html">遭AI詐騙新聞</a>
+    <a href="3-5.html">黑幫經營遭查獲</a>
+    <a href="3-6.html">反深偽宣導影片</a>
   </div>
+
+  <div class="content">
+    <h1>遭AI詐騙新聞</h1>
+    <p>
+      這起案例凸顯 AI 技術已被詐騙集團大量濫用，假冒檢警的聲音與影像幾可亂真，讓受害者失去判斷力。婦人短短四個月內，八個帳戶共遭詐走近九千萬元，不僅存款全失，更因帳戶被當成人頭戶而受到連帶懲處。這顯示銀行在風險控管與即時警示上仍有漏洞，也提醒民眾必須保持警覺，遇到檢警要求視訊或金流操作時，務必透過官方電話或親自確認，以防成為下一個受害者。
+    </p>	
+     <p><strong>影片:AI合成假檢警!婦＂8帳戶8891萬被詐光＂銀行也沒發現!？</strong></p>
+
+  <video id="fraudVideo" controls>
+    <source src="AI合成假檢警!婦＂8帳戶8891萬被詐光＂銀行也沒發現!？│中視新聞 20250611.mp4" type="video/mp4" />
+    您的瀏覽器不支援 HTML5 影片播放。
+  </video>
+
+  <a href="https://www.youtube.com/watch?v=WeoJIU3RXU0" target="_blank">
+    來源：https://www.youtube.com/watch?v=WeoJIU3RXU0
+  </a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const video = document.getElementById('fraudVideo');
+      video.playbackRate = 1.2;
+      // 不使用自動播放，使用者手動點擊播放
+    });
+  </script>
+</div>
+
   <footer>
     <p>&copy; 2025 洪益華 | 所有權保留</p>
   </footer>
