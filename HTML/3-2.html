@@ -6,17 +6,6 @@
   <title>反詐騙宣導影片及新聞</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<script>
-function resizeIframe(obj) {
-  try {
-    // 讀取 iframe 內部內容高度
-    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-  } catch (e) {
-    // 若跨域失敗，可設一個預設高度
-    obj.style.height = '1200px';
-  }
-}
-</script>
 <body>
   <nav>
     <a href="../index.html">首頁</a>
@@ -45,14 +34,12 @@ function resizeIframe(obj) {
 </p>
 
 
-  <!-- 外層容器 -->
-  <div class="iframe-wrapper">
-    <iframe 
-      src="ai-fraud-20250729.html" 
-      title="AI詐騙一年暴增四倍多 本地檔案"
-      sandbox="allow-same-origin allow-scripts">
-    </iframe>
-  </div>
+<div class="image-container">
+  <img src="ai-fraud-1.png">
+  <img src="ai-fraud-2.png">
+  <img src="ai-fraud-3.png">
+</div>
+
 
   <br />
      <a href=https://news.pchome.com.tw/science/technice/20250729/index-75377399875811338005.html>來源:https://news.pchome.com.tw/science/technice/20250729/index-75377399875811338005.html</a>
