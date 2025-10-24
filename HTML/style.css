@@ -454,6 +454,12 @@ footer {
   width: 100%;
   padding-bottom: 56.25%; /* 16:9 高度比例 */
   height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  background: #fff;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
 }
 
 .iframe-wrapper iframe {
@@ -464,4 +470,17 @@ footer {
   height: 100%;
   border: none;
   display: block;
+}
+
+/* 手機或嵌入式 iframe 內的畫面 — 提高比例讓內容更高 */
+@media (max-width: 768px) {
+  .iframe-wrapper {
+    padding-bottom: 75%; /* 改成 4:3 高度比例，比較不會太扁 */
+  }
+}
+
+@media (max-width: 480px) {
+  .iframe-wrapper {
+    padding-bottom: 90%; /* 手機直立狀態更高一點 */
+  }
 }
