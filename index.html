@@ -213,11 +213,33 @@
     <h2>📂 我的作品索引與聯繫方式</h2>
     <p>🔗 <a href="https://github.com/yihua0988/-2025-7-29-" target="_blank" rel="noopener noreferrer">GitHub 專案首頁</a></p>
     <p>📝 <a href="https://github.com/yihua0988/-2025-7-29-/tree/main/ppt" target="_blank" rel="noopener noreferrer">簡報 PPT 連結</a></p>
-    <p>📬 聯繫作者：<a href="mailto:yihua0988@gmail.com">yihua0988@gmail.com</a></p>
+    
+    <p style="display: flex; align-items: center; flex-wrap: wrap; gap: 5px;">
+      📬 聯繫作者：
+      <span onclick="copyEmail()" style="cursor: pointer; color: #0066cc; border-bottom: 1px dashed #0066cc; display: inline-flex; align-items: center; gap: 5px; font-weight: bold;">
+        yihua0988@gmail.com
+        <span style="font-size: 12px; background: #eee; color: #333; padding: 2px 6px; border-radius: 4px; border: 1px solid #ccc;">點擊複製</span>
+      </span>
+    </p>
+
   </main>
 
   <footer>
     <p>&copy; 2025 洪益華 | 詐騙防制資料分析專題 | 所有權保留</p>
   </footer>
+
+  <script>
+    function copyEmail() {
+      const email = "yihua0988@gmail.com";
+      // 使用 Clipboard API 進行複製
+      navigator.clipboard.writeText(email).then(() => {
+        alert("Email 已複製到剪貼簿：\n" + email);
+      }).catch(err => {
+        console.error('複製失敗', err);
+        // 如果瀏覽器不支援，提示手動輸入
+        alert("複製失敗，請手動輸入：yihua0988@gmail.com");
+      });
+    }
+  </script>
 </body>
 </html>
