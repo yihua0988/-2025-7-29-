@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yihua0988.github.io/-2025-7-29-/sitemap.xml

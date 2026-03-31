@@ -25,13 +25,34 @@
         }
     }
 
+    // [新增] 動態注入 CSS，徹底禁止滑鼠反白選取文字
+    var style = document.createElement('style');
+    style.innerHTML = `
+        * {
+            -webkit-user-select: none !important; /* Chrome, Safari, Opera */
+            -moz-user-select: none !important;    /* Firefox */
+            -ms-user-select: none !important;     /* IE/Edge */
+            user-select: none !important;         /* 現代瀏覽器標準 */
+        }
+    `;
+    document.head.appendChild(style);
+
+    // [新增] 禁止選取、拖曳、複製、剪下、貼上
+    var preventEvents = ['selectstart', 'dragstart', 'copy', 'cut', 'paste'];
+    preventEvents.forEach(function(eventName) {
+        document.addEventListener(eventName, function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }, true);
+    });
+
     // 禁止右鍵選單
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
         e.stopPropagation(); // 強化攔截
     }, true);
 
-    // 禁止鍵盤快捷鍵 (F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S)
+    // 禁止鍵盤快捷鍵 (F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S, Ctrl+C複製)
     document.addEventListener('keydown', function(e) {
         // F12
         if (e.keyCode == 123) {
@@ -50,10 +71,12 @@
                     return false;
                 }
             }
-            // 單純 Ctrl 組合鍵 (U=原始碼, S=存檔)
-            if (e.keyCode == 85 || e.keyCode == 83) { // U, S
+            // 單純 Ctrl 組合鍵 (U=原始碼, S=存檔, C=複製, X=剪下)
+            if (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 67 || e.keyCode == 88) { 
                 e.preventDefault();
-                redirectToGoogle();
+                // 這裡按下 Ctrl+C 只是阻擋，不一定每次都要跳轉，但如果要嚴格一點也可以觸發 redirectToGoogle()
+                // 如果不要因為按 Ctrl+C 就跳轉，把 redirectToGoogle() 註解掉即可
+                // redirectToGoogle(); 
                 return false;
             }
         }
@@ -70,4 +93,4 @@
         }
     }, 2000); // 每 2 秒檢查一次
 
-})();	
+})();
